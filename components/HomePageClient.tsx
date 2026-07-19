@@ -167,12 +167,16 @@ export default function HomePageClient({ settings, services, testimonials, speci
           </ScrollReveal>
           <ScrollReveal delay={0.2} className="flex flex-col items-center justify-center p-8 border-b md:border-b-0 md:border-r border-primary-container/5 hover:bg-surface-container-low transition-colors group">
             <span className="material-symbols-outlined text-primary text-[32px] mb-2 group-hover:scale-110 transition-transform">favorite</span>
-            <div className="font-headline-lg text-headline-lg text-primary">1000+</div>
+            <div className="font-headline-lg text-headline-lg text-primary">
+              <AnimatedNumber value={1000} suffix="+" />
+            </div>
             <div className="font-label-md text-label-md text-on-surface-variant mt-1">Happy Clients</div>
           </ScrollReveal>
           <ScrollReveal delay={0.3} className="flex flex-col items-center justify-center p-8 border-b md:border-b-0 md:border-r border-primary-container/5 hover:bg-surface-container-low transition-colors group">
             <span className="material-symbols-outlined text-primary text-[32px] mb-2 group-hover:scale-110 transition-transform">workspace_premium</span>
-            <div className="font-headline-lg text-headline-lg text-primary">10+</div>
+            <div className="font-headline-lg text-headline-lg text-primary">
+              <AnimatedNumber value={10} suffix="+" />
+            </div>
             <div className="font-label-md text-label-md text-on-surface-variant mt-1">Years Experience</div>
           </ScrollReveal>
           <ScrollReveal delay={0.4} className="flex flex-col items-center justify-center p-8 hover:bg-surface-container-low transition-colors group">
