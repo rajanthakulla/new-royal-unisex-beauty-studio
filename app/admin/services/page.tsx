@@ -171,64 +171,106 @@ export default function AdminServices() {
           <p className="text-sm max-w-sm">Create salon treatments to allow clients to select them on the booking page.</p>
         </div>
       ) : (
-        <div className="bg-white rounded-3xl border border-outline-variant/20 shadow-sm overflow-hidden">
-          <div className="overflow-x-auto">
-            <table className="w-full text-left border-collapse">
-              <thead>
-                <tr className="bg-surface border-b border-outline-variant/30 text-[11px] font-label-md uppercase tracking-wider text-on-surface-variant/80">
-                  <th className="p-5 pl-8">Service Title</th>
-                  <th className="p-5">Category</th>
-                  <th className="p-5">Price</th>
-                  <th className="p-5">Image Preview</th>
-                  <th className="p-5 pr-8 text-right">Actions</th>
-                </tr>
-              </thead>
-              <tbody className="divide-y divide-outline-variant/20 font-body-md text-sm text-on-surface">
-                {services.map((service) => (
-                  <tr key={service.id} className="hover:bg-surface-container-lowest/50 transition-colors">
-                    <td className="p-5 pl-8">
-                      <div className="font-bold text-[15px]">{service.title}</div>
-                      <div className="text-xs text-on-surface-variant line-clamp-1 max-w-md mt-1">{service.description}</div>
-                    </td>
-                    <td className="p-5 text-on-surface-variant font-medium">
-                      {service.category?.name || "Uncategorized"}
-                    </td>
-                    <td className="p-5 font-semibold text-secondary">
-                      Rs. {service.price.toLocaleString()}
-                    </td>
-                    <td className="p-5">
-                      {service.image ? (
-                        <div className="relative w-12 h-12 rounded-lg overflow-hidden border border-outline-variant/30">
-                          <img src={service.image} alt={service.title} className="object-cover w-full h-full" />
-                        </div>
-                      ) : (
-                        <span className="text-xs text-on-surface-variant/60 italic">No image</span>
-                      )}
-                    </td>
-                    <td className="p-5 pr-8 text-right">
-                      <div className="flex justify-end gap-2">
-                        <button 
-                          onClick={() => openEditModal(service)}
-                          className="w-9 h-9 flex items-center justify-center text-on-surface-variant hover:bg-surface-container-low hover:text-black rounded-full transition-colors border-none"
-                          title="Edit"
-                        >
-                          <Edit size={16} />
-                        </button>
-                        <button 
-                          onClick={() => handleDelete(service.id)}
-                          className="w-9 h-9 flex items-center justify-center text-red-600 hover:bg-red-50 rounded-full transition-colors border-none"
-                          title="Delete"
-                        >
-                          <Trash2 size={16} />
-                        </button>
-                      </div>
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
+        <>
+          <div className="space-y-4 lg:hidden">
+            {services.map((service) => (
+              <div key={service.id} className="bg-white p-5 rounded-3xl border border-outline-variant/20 shadow-sm space-y-4">
+                <div className="flex gap-4">
+                  {service.image ? (
+                    <div className="relative w-16 h-16 rounded-2xl overflow-hidden border border-outline-variant/30 shrink-0">
+                      <img src={service.image} alt={service.title} className="object-cover w-full h-full" />
+                    </div>
+                  ) : (
+                    <div className="w-16 h-16 rounded-2xl bg-surface-container flex items-center justify-center border border-outline-variant/30 shrink-0">
+                      <Scissors size={20} className="text-on-surface-variant/40" />
+                    </div>
+                  )}
+                  <div className="min-w-0">
+                    <h3 className="font-bold text-[16px] text-on-surface line-clamp-1">{service.title}</h3>
+                    <p className="text-xs text-on-surface-variant font-medium mt-0.5">{service.category?.name || "Uncategorized"}</p>
+                    <p className="text-[14px] font-bold text-secondary mt-1">Rs. {service.price.toLocaleString()}</p>
+                  </div>
+                </div>
+                <p className="text-xs text-on-surface-variant line-clamp-2 leading-relaxed">{service.description}</p>
+                <div className="flex justify-end gap-2 border-t border-outline-variant/10 pt-3">
+                  <button 
+                    onClick={() => openEditModal(service)}
+                    className="flex items-center gap-1.5 px-4 py-2 text-xs font-semibold uppercase tracking-wider text-on-surface-variant bg-surface-container hover:bg-surface-container-high rounded-full transition-colors border-none"
+                  >
+                    <Edit size={14} />
+                    Edit
+                  </button>
+                  <button 
+                    onClick={() => handleDelete(service.id)}
+                    className="flex items-center gap-1.5 px-4 py-2 text-xs font-semibold uppercase tracking-wider text-red-600 bg-red-50 hover:bg-red-100 rounded-full transition-colors border-none"
+                  >
+                    <Trash2 size={14} />
+                    Delete
+                  </button>
+                </div>
+              </div>
+            ))}
           </div>
-        </div>
+
+          <div className="hidden lg:block bg-white rounded-3xl border border-outline-variant/20 shadow-sm overflow-hidden">
+            <div className="overflow-x-auto">
+              <table className="w-full text-left border-collapse">
+                <thead>
+                  <tr className="bg-surface border-b border-outline-variant/30 text-[11px] font-label-md uppercase tracking-wider text-on-surface-variant/80">
+                    <th className="p-5 pl-8">Service Title</th>
+                    <th className="p-5">Category</th>
+                    <th className="p-5">Price</th>
+                    <th className="p-5">Image Preview</th>
+                    <th className="p-5 pr-8 text-right">Actions</th>
+                  </tr>
+                </thead>
+                <tbody className="divide-y divide-outline-variant/20 font-body-md text-sm text-on-surface">
+                  {services.map((service) => (
+                    <tr key={service.id} className="hover:bg-surface-container-lowest/50 transition-colors">
+                      <td className="p-5 pl-8">
+                        <div className="font-bold text-[15px]">{service.title}</div>
+                        <div className="text-xs text-on-surface-variant line-clamp-1 max-w-md mt-1">{service.description}</div>
+                      </td>
+                      <td className="p-5 text-on-surface-variant font-medium">
+                        {service.category?.name || "Uncategorized"}
+                      </td>
+                      <td className="p-5 font-semibold text-secondary">
+                        Rs. {service.price.toLocaleString()}
+                      </td>
+                      <td className="p-5">
+                        {service.image ? (
+                          <div className="relative w-12 h-12 rounded-lg overflow-hidden border border-outline-variant/30">
+                            <img src={service.image} alt={service.title} className="object-cover w-full h-full" />
+                          </div>
+                        ) : (
+                          <span className="text-xs text-on-surface-variant/60 italic">No image</span>
+                        )}
+                      </td>
+                      <td className="p-5 pr-8 text-right">
+                        <div className="flex justify-end gap-2">
+                          <button 
+                            onClick={() => openEditModal(service)}
+                            className="w-9 h-9 flex items-center justify-center text-on-surface-variant hover:bg-surface-container-low hover:text-black rounded-full transition-colors border-none"
+                            title="Edit"
+                          >
+                            <Edit size={16} />
+                          </button>
+                          <button 
+                            onClick={() => handleDelete(service.id)}
+                            className="w-9 h-9 flex items-center justify-center text-red-600 hover:bg-red-50 rounded-full transition-colors border-none"
+                            title="Delete"
+                          >
+                            <Trash2 size={16} />
+                          </button>
+                        </div>
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </>
       )}
 
       {/* Add / Edit Modal */}

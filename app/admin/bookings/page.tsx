@@ -137,101 +137,169 @@ export default function AdminBookings() {
           <p className="text-sm max-w-sm">No appointment bookings match your active filter.</p>
         </div>
       ) : (
-        <div className="bg-white rounded-3xl border border-outline-variant/20 shadow-sm overflow-hidden">
-          <div className="overflow-x-auto">
-            <table className="w-full text-left border-collapse">
-              <thead>
-                <tr className="bg-surface border-b border-outline-variant/30 text-[11px] font-label-md uppercase tracking-wider text-on-surface-variant/80">
-                  <th className="p-5 pl-8">Client</th>
-                  <th className="p-5">Service</th>
-                  <th className="p-5">Date &amp; Time</th>
-                  <th className="p-5">Status</th>
-                  <th className="p-5">Notes</th>
-                  <th className="p-5 pr-8 text-right">Actions</th>
-                </tr>
-              </thead>
-              <tbody className="divide-y divide-outline-variant/20 font-body-md text-sm text-on-surface">
-                {filteredBookings.map((booking) => {
-                  const dateObj = new Date(booking.date);
-                  const formattedDate = dateObj.toLocaleDateString(undefined, { 
-                    month: 'short', 
-                    day: 'numeric', 
-                    year: 'numeric' 
-                  });
-                  const formattedTime = dateObj.toLocaleTimeString(undefined, { 
-                    hour: '2-digit', 
-                    minute: '2-digit' 
-                  });
+        <>
+          <div className="space-y-4 lg:hidden">
+            {filteredBookings.map((booking) => {
+              const dateObj = new Date(booking.date);
+              const formattedDate = dateObj.toLocaleDateString(undefined, { 
+                month: 'short', 
+                day: 'numeric', 
+                year: 'numeric' 
+              });
+              const formattedTime = dateObj.toLocaleTimeString(undefined, { 
+                hour: '2-digit', 
+                minute: '2-digit' 
+              });
 
-                  return (
-                    <tr key={booking.id} className="hover:bg-surface-container-lowest/50 transition-colors">
-                      {/* Customer Info */}
-                      <td className="p-5 pl-8">
-                        <div>
-                          <p className="font-bold text-[15px]">{booking.customerName}</p>
-                          <p className="text-xs text-on-surface-variant mt-0.5">{booking.customerPhone}</p>
-                          {booking.customerEmail && (
-                            <p className="text-[11px] text-on-surface-variant/70 italic mt-0.5">{booking.customerEmail}</p>
-                          )}
-                        </div>
-                      </td>
-
-                      {/* Service details */}
-                      <td className="p-5">
-                        <div>
-                          <p className="font-semibold">{booking.service?.title || "Unknown Service"}</p>
-                          <p className="text-xs text-secondary font-semibold mt-0.5">Rs. {booking.service?.price.toLocaleString() || "0"}</p>
-                        </div>
-                      </td>
-
-                      {/* Date details */}
-                      <td className="p-5">
-                        <div>
-                          <p className="font-semibold">{formattedDate}</p>
-                          <p className="text-xs text-on-surface-variant mt-0.5">{formattedTime}</p>
-                        </div>
-                      </td>
-
-                      {/* Status select */}
-                      <td className="p-5">
-                        <select 
-                          value={booking.status}
-                          onChange={(e) => handleStatusChange(booking.id, e.target.value)}
-                          className={`text-xs font-bold px-3 py-1.5 rounded-full border cursor-pointer outline-none focus:ring-0 ${getStatusStyle(booking.status)}`}
-                        >
-                          <option value="PENDING">PENDING</option>
-                          <option value="CONFIRMED">CONFIRMED</option>
-                          <option value="COMPLETED">COMPLETED</option>
-                          <option value="CANCELLED">CANCELLED</option>
-                        </select>
-                      </td>
-
-                      {/* Notes snippet */}
-                      <td className="p-5">
-                        <p className="text-xs text-on-surface-variant max-w-[180px] line-clamp-2" title={booking.notes}>
-                          {booking.notes || "—"}
-                        </p>
-                      </td>
-
-                      {/* Action buttons */}
-                      <td className="p-5 pr-8 text-right">
-                        <div className="flex justify-end gap-2">
-                          <button 
-                            onClick={() => handleDelete(booking.id)}
-                            className="w-9 h-9 flex items-center justify-center text-red-600 hover:bg-red-50 rounded-full transition-colors border-none"
-                            title="Delete Booking"
-                          >
-                            <Trash2 size={16} />
-                          </button>
-                        </div>
-                      </td>
-                    </tr>
-                  );
-                })}
-              </tbody>
-            </table>
+              return (
+                <div key={booking.id} className="bg-white p-5 rounded-3xl border border-outline-variant/20 shadow-sm space-y-4">
+                  <div className="flex justify-between items-start">
+                    <div>
+                      <h3 className="font-bold text-[16px] text-on-surface">{booking.customerName}</h3>
+                      <p className="text-xs text-on-surface-variant font-medium mt-0.5">{booking.customerPhone}</p>
+                      {booking.customerEmail && (
+                        <p className="text-[11px] text-on-surface-variant/70 italic mt-0.5">{booking.customerEmail}</p>
+                      )}
+                    </div>
+                    <select 
+                      value={booking.status}
+                      onChange={(e) => handleStatusChange(booking.id, e.target.value)}
+                      className={`text-[10px] font-bold px-2.5 py-1 rounded-full border cursor-pointer outline-none focus:ring-0 ${getStatusStyle(booking.status)}`}
+                    >
+                      <option value="PENDING">PENDING</option>
+                      <option value="CONFIRMED">CONFIRMED</option>
+                      <option value="COMPLETED">COMPLETED</option>
+                      <option value="CANCELLED">CANCELLED</option>
+                    </select>
+                  </div>
+                  <div className="grid grid-cols-2 gap-4 border-t border-outline-variant/10 pt-3">
+                    <div>
+                      <p className="text-[10px] font-bold text-on-surface-variant/70 uppercase tracking-wide">Service</p>
+                      <p className="text-xs font-semibold text-on-surface mt-0.5">{booking.service?.title || "Unknown Service"}</p>
+                      <p className="text-[11px] font-semibold text-secondary">Rs. {booking.service?.price.toLocaleString() || "0"}</p>
+                    </div>
+                    <div>
+                      <p className="text-[10px] font-bold text-on-surface-variant/70 uppercase tracking-wide">Date &amp; Time</p>
+                      <p className="text-xs font-semibold text-on-surface mt-0.5">{formattedDate}</p>
+                      <p className="text-[11px] text-on-surface-variant font-medium">{formattedTime}</p>
+                    </div>
+                  </div>
+                  {booking.notes && (
+                    <div className="bg-surface-container/30 p-3 rounded-2xl border border-outline-variant/10 text-xs text-on-surface-variant leading-relaxed">
+                      <p className="font-semibold text-[10px] text-on-surface-variant/70 uppercase tracking-wide mb-1">Notes</p>
+                      {booking.notes}
+                    </div>
+                  )}
+                  <div className="flex justify-end border-t border-outline-variant/10 pt-3">
+                    <button 
+                      onClick={() => handleDelete(booking.id)}
+                      className="flex items-center gap-1.5 px-4 py-2 text-xs font-semibold uppercase tracking-wider text-red-600 bg-red-50 hover:bg-red-100 rounded-full transition-colors border-none"
+                    >
+                      <Trash2 size={14} />
+                      Delete
+                    </button>
+                  </div>
+                </div>
+              );
+            })}
           </div>
-        </div>
+
+          <div className="hidden lg:block bg-white rounded-3xl border border-outline-variant/20 shadow-sm overflow-hidden">
+            <div className="overflow-x-auto">
+              <table className="w-full text-left border-collapse">
+                <thead>
+                  <tr className="bg-surface border-b border-outline-variant/30 text-[11px] font-label-md uppercase tracking-wider text-on-surface-variant/80">
+                    <th className="p-5 pl-8">Client</th>
+                    <th className="p-5">Service</th>
+                    <th className="p-5">Date &amp; Time</th>
+                    <th className="p-5">Status</th>
+                    <th className="p-5">Notes</th>
+                    <th className="p-5 pr-8 text-right">Actions</th>
+                  </tr>
+                </thead>
+                <tbody className="divide-y divide-outline-variant/20 font-body-md text-sm text-on-surface">
+                  {filteredBookings.map((booking) => {
+                    const dateObj = new Date(booking.date);
+                    const formattedDate = dateObj.toLocaleDateString(undefined, { 
+                      month: 'short', 
+                      day: 'numeric', 
+                      year: 'numeric' 
+                    });
+                    const formattedTime = dateObj.toLocaleTimeString(undefined, { 
+                      hour: '2-digit', 
+                      minute: '2-digit' 
+                    });
+
+                    return (
+                      <tr key={booking.id} className="hover:bg-surface-container-lowest/50 transition-colors">
+                        {/* Customer Info */}
+                        <td className="p-5 pl-8">
+                          <div>
+                            <p className="font-bold text-[15px]">{booking.customerName}</p>
+                            <p className="text-xs text-on-surface-variant mt-0.5">{booking.customerPhone}</p>
+                            {booking.customerEmail && (
+                              <p className="text-[11px] text-on-surface-variant/70 italic mt-0.5">{booking.customerEmail}</p>
+                            )}
+                          </div>
+                        </td>
+
+                        {/* Service details */}
+                        <td className="p-5">
+                          <div>
+                            <p className="font-semibold">{booking.service?.title || "Unknown Service"}</p>
+                            <p className="text-xs text-secondary font-semibold mt-0.5">Rs. {booking.service?.price.toLocaleString() || "0"}</p>
+                          </div>
+                        </td>
+
+                        {/* Date details */}
+                        <td className="p-5">
+                          <div>
+                            <p className="font-semibold">{formattedDate}</p>
+                            <p className="text-xs text-on-surface-variant mt-0.5">{formattedTime}</p>
+                          </div>
+                        </td>
+
+                        {/* Status select */}
+                        <td className="p-5">
+                          <select 
+                            value={booking.status}
+                            onChange={(e) => handleStatusChange(booking.id, e.target.value)}
+                            className={`text-xs font-bold px-3 py-1.5 rounded-full border cursor-pointer outline-none focus:ring-0 ${getStatusStyle(booking.status)}`}
+                          >
+                            <option value="PENDING">PENDING</option>
+                            <option value="CONFIRMED">CONFIRMED</option>
+                            <option value="COMPLETED">COMPLETED</option>
+                            <option value="CANCELLED">CANCELLED</option>
+                          </select>
+                        </td>
+
+                        {/* Notes snippet */}
+                        <td className="p-5">
+                          <p className="text-xs text-on-surface-variant max-w-[180px] line-clamp-2" title={booking.notes}>
+                            {booking.notes || "—"}
+                          </p>
+                        </td>
+
+                        {/* Action buttons */}
+                        <td className="p-5 pr-8 text-right">
+                          <div className="flex justify-end gap-2">
+                            <button 
+                              onClick={() => handleDelete(booking.id)}
+                              className="w-9 h-9 flex items-center justify-center text-red-600 hover:bg-red-50 rounded-full transition-colors border-none"
+                              title="Delete Booking"
+                            >
+                              <Trash2 size={16} />
+                            </button>
+                          </div>
+                        </td>
+                      </tr>
+                    );
+                  })}
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </>
       )}
     </div>
   );
