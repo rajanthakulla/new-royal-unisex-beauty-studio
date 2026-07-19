@@ -84,6 +84,33 @@ async function main() {
     }
   })
 
+  // Seasonal Specials
+  await prisma.seasonalSpecial.createMany({
+    data: [
+      {
+        tag: "Monsoon Special",
+        title: "Monsoon Hair Hydration",
+        description: "Bespoke hair spa treatment combined with an intensive anti-frizz mask and a luxury blow-dry.",
+        price: 49,
+        bookingLink: "/book",
+      },
+      {
+        tag: "Festival Glow",
+        title: "Royal Facial & Dermal Radiance",
+        description: "Our signature clinical hydra-facial coupled with a relaxing head massage and organic tan removal.",
+        price: 89,
+        bookingLink: "/book",
+      },
+      {
+        tag: "Bridal Special",
+        title: "Complete Queen Makeover",
+        description: "Professional high-definition bridal makeup trial, deluxe pedicure, and ultimate hair styling prep.",
+        price: 150,
+        bookingLink: "/book",
+      }
+    ]
+  })
+
   console.log("Database seeded!")
 }
 
