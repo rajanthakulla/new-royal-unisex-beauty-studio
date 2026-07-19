@@ -19,6 +19,24 @@ async function main() {
   })
   console.log({ admin })
 
+  // Create Default Site Settings
+  const settingsCount = await prisma.siteSettings.count()
+  if (settingsCount === 0) {
+    const settings = await prisma.siteSettings.create({
+      data: {
+        heroTitle: "Best Unisex Salon",
+        heroSubtitle: "in New Baneshwor Kathmandu",
+        heroDescription: "Professional hair, beauty, and makeup services...",
+        contactPhone: "+977 981-3451412",
+        whatsappNumber: "9779813451412",
+        address: "M8RP+CCR, Kathmandu 44600",
+        googleMapsUrl: "https://maps.google.com/?q=M8RP%2BCCR,+Kathmandu+44600",
+        businessHours: "Everyday 9:00 AM - 8:00 PM"
+      }
+    })
+    console.log("Default site settings created!", settings)
+  }
+
   // Categories
   const hairCat = await prisma.category.upsert({
     where: { slug: 'hair' },
