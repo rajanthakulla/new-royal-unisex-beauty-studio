@@ -238,36 +238,6 @@ export default function HomePageClient({ settings, services, testimonials, speci
         </div>
       </section>
 
-      {/* 3.5 By The Numbers / Impact */}
-      <section className="py-20 bg-[#211a16] text-[#ede0d9]">
-        <div className="max-w-container-max mx-auto px-margin-desktop grid grid-cols-2 md:grid-cols-4 gap-12 text-center">
-          <ScrollReveal direction="up" delay={0.1} className="space-y-3">
-            <h3 className="font-display-lg text-[48px] md:text-[64px] text-[#D4AF37]">
-              <AnimatedNumber value={15} suffix="+" />
-            </h3>
-            <p className="font-label-md uppercase tracking-[0.2em] text-[11px] text-white/60">Years Experience</p>
-          </ScrollReveal>
-          <ScrollReveal direction="up" delay={0.2} className="space-y-3">
-            <h3 className="font-display-lg text-[48px] md:text-[64px] text-[#D4AF37]">
-              <AnimatedNumber value={5000} suffix="+" />
-            </h3>
-            <p className="font-label-md uppercase tracking-[0.2em] text-[11px] text-white/60">Happy Brides</p>
-          </ScrollReveal>
-          <ScrollReveal direction="up" delay={0.3} className="space-y-3">
-            <h3 className="font-display-lg text-[48px] md:text-[64px] text-[#D4AF37]">
-              <AnimatedNumber value={50} suffix="+" />
-            </h3>
-            <p className="font-label-md uppercase tracking-[0.2em] text-[11px] text-white/60">Premium Services</p>
-          </ScrollReveal>
-          <ScrollReveal direction="up" delay={0.4} className="space-y-3">
-            <h3 className="font-display-lg text-[48px] md:text-[64px] text-[#D4AF37]">
-              <AnimatedNumber value={100} suffix="%" />
-            </h3>
-            <p className="font-label-md uppercase tracking-[0.2em] text-[11px] text-white/60">Satisfaction</p>
-          </ScrollReveal>
-        </div>
-      </section>
-
       {/* 4. Salon Vibes Marquee */}
       <section className="py-12 bg-surface-container-lowest overflow-hidden">
         <ScrollReveal delay={0.1} className="text-center mb-8">
