@@ -316,7 +316,7 @@ export default function HomePageClient({ settings, services, testimonials, speci
           </ScrollReveal>
 
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-            <ScrollReveal delay={0.2} className="lg:col-span-8 overflow-hidden shadow-premium h-[600px] border border-primary-container/10">
+            <ScrollReveal delay={0.2} className="lg:col-span-8 overflow-hidden shadow-premium h-[380px] sm:h-[500px] md:h-[600px] border border-primary-container/10">
               <ReactCompareSlider
                 className="w-full h-full object-cover"
                 itemOne={<ReactCompareSliderImage src="/before_hair.jpg" alt="Before" />}
