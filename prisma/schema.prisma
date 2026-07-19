@@ -1,0 +1,167 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+// NextAuth Models
+model Account {
+  id                 String  @id @default(cuid())
+  userId             String
+  type               String
+  provider           String
+  providerAccountId  String
+  refresh_token      String?
+  access_token       String?
+  expires_at         Int?
+  token_type         String?
+  scope              String?
+  id_token           String?
+  session_state      String?
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([provider, providerAccountId])
+}
+
+model Session {
+  id           String   @id @default(cuid())
+  sessionToken String   @unique
+  userId       String
+  expires      DateTime
+  user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+model User {
+  id            String    @id @default(cuid())
+  name          String?
+  email         String?   @unique
+  emailVerified DateTime?
+  image         String?
+  password      String?
+  role          String    @default("USER") // ADMIN, USER
+  accounts      Account[]
+  sessions      Session[]
+  bookings      Booking[]
+}
+
+model VerificationToken {
+  identifier String
+  token      String   @unique
+  expires    DateTime
+
+  @@unique([identifier, token])
+}
+
+// App Specific Models
+model Service {
+  id          String   @id @default(cuid())
+  title       String
+  slug        String   @unique
+  description String
+  price       Float
+  image       String?
+  categoryId  String?
+  category    Category? @relation(fields: [categoryId], references: [id])
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  bookings    Booking[]
+}
+
+model Category {
+  id          String    @id @default(cuid())
+  name        String
+  slug        String    @unique
+  services    Service[]
+}
+
+model Booking {
+  id          String   @id @default(cuid())
+  userId      String?
+  user        User?    @relation(fields: [userId], references: [id])
+  serviceId   String
+  service     Service  @relation(fields: [serviceId], references: [id])
+  date        DateTime
+  status      String   @default("PENDING") // PENDING, CONFIRMED, CANCELLED, COMPLETED
+  customerName String
+  customerEmail String
+  customerPhone String
+  notes       String?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+model Blog {
+  id          String   @id @default(cuid())
+  title       String
+  slug        String   @unique
+  content     String
+  author      String
+  image       String?
+  published   Boolean  @default(false)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+model Offer {
+  id          String   @id @default(cuid())
+  title       String
+  description String
+  discount    String
+  validUntil  DateTime
+  image       String?
+  isActive    Boolean  @default(true)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+model Testimonial {
+  id          String   @id @default(cuid())
+  name        String
+  role        String?
+  content     String
+  rating      Int      @default(5)
+  image       String?
+  isActive    Boolean  @default(true)
+  createdAt   DateTime @default(now())
+}
+
+model GalleryItem {
+  id          String   @id @default(cuid())
+  url         String
+  type        String   @default("IMAGE") // IMAGE, VIDEO, BEFORE_AFTER
+  caption     String?
+  category    String?
+  createdAt   DateTime @default(now())
+}
+
+model SiteSettings {
+  id              String   @id @default(cuid())
+  heroTitle       String   @default("Best Unisex Salon")
+  heroSubtitle    String   @default("in New Baneshwor Kathmandu")
+  heroDescription String   @default("Professional hair, beauty, and makeup services...")
+  heroImage       String   @default("https://lh3.googleusercontent.com/aida-public/...")
+  contactPhone    String   @default("+977 981-3451412")
+  whatsappNumber  String   @default("9779813451412")
+  address         String   @default("M8RP+CCR, Kathmandu 44600")
+  googleMapsUrl   String?  @default("https://maps.google.com/?q=M8RP%2BCCR,+Kathmandu+44600")
+  businessHours   String   @default("Everyday 9:00 AM - 8:00 PM")
+  facebookUrl     String?
+  instagramUrl    String?
+  tiktokUrl       String?
+  updatedAt       DateTime @updatedAt
+}
+
+model SeasonalSpecial {
+  id          String   @id @default(cuid())
+  tag         String
+  title       String
+  description String
+  price       Float
+  bookingLink String
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
