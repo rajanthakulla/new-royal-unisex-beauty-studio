@@ -9,7 +9,12 @@ const prisma = new PrismaClient();
 export const revalidate = 60; // Revalidate every 60 seconds
 
 export default async function FAQPage() {
-  const settings = await prisma.siteSettings.findFirst();
+  let settings = null;
+  try {
+    settings = await prisma.siteSettings.findFirst();
+  } catch (err) {
+    console.error("FAQ settings query failed:", err);
+  }
 
   const faqSections = [
     {

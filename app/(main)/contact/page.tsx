@@ -8,7 +8,12 @@ const prisma = new PrismaClient();
 export const revalidate = 60;
 
 export default async function ContactPage() {
-  const settings = await prisma.siteSettings.findFirst();
+  let settings = null;
+  try {
+    settings = await prisma.siteSettings.findFirst();
+  } catch (err) {
+    console.error("Contact settings query failed:", err);
+  }
 
   return (
     <main className="pb-24">
