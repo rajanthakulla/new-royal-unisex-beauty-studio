@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { ImageIcon, Plus, Trash2, X, Loader2 } from "lucide-react";
+import { ImageIcon, Plus, Trash2, X, Loader2, Pencil } from "lucide-react";
 import ImageUploader from "@/components/ImageUploader";
 
 interface GalleryItem {
@@ -23,6 +23,7 @@ export default function AdminGallery() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [saving, setSaving] = useState(false);
   const [error, setError] = useState("");
+  const [editingItem, setEditingItem] = useState<GalleryItem | null>(null);
 
   // Form State
   const [formUrl, setFormUrl] = useState("");
@@ -47,7 +48,7 @@ export default function AdminGallery() {
     fetchItems();
   }, []);
 
-  const handleUpload = async (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!formUrl) {
       setError("Please upload an image first.");
@@ -57,16 +58,21 @@ export default function AdminGallery() {
     setSaving(true);
     setError("");
 
+    const payload = {
+      url: formUrl,
+      type: "IMAGE",
+      caption: formCaption,
+      category: formCategory
+    };
+
     try {
-      const res = await fetch("/api/gallery", {
-        method: "POST",
+      const url = editingItem ? `/api/gallery/${editingItem.id}` : "/api/gallery";
+      const method = editingItem ? "PUT" : "POST";
+
+      const res = await fetch(url, {
+        method,
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          url: formUrl,
-          type: "IMAGE",
-          caption: formCaption,
-          category: formCategory
-        })
+        body: JSON.stringify(payload)
       });
 
       const data = await res.json();
@@ -75,6 +81,7 @@ export default function AdminGallery() {
         setFormUrl("");
         setFormCaption("");
         setFormCategory("General");
+        setEditingItem(null);
         fetchItems();
       } else {
         setError(data.error || "Failed to save gallery item.");
@@ -84,6 +91,15 @@ export default function AdminGallery() {
     } finally {
       setSaving(false);
     }
+  };
+
+  const handleEditClick = (item: GalleryItem) => {
+    setError("");
+    setEditingItem(item);
+    setFormUrl(item.url);
+    setFormCaption(item.caption || "");
+    setFormCategory(item.category || "General");
+    setIsModalOpen(true);
   };
 
   const handleDelete = async (id: string) => {
@@ -115,6 +131,10 @@ export default function AdminGallery() {
         <button 
           onClick={() => {
             setError("");
+            setEditingItem(null);
+            setFormUrl("");
+            setFormCaption("");
+            setFormCategory("General");
             setIsModalOpen(true);
           }}
           className="flex items-center gap-2 bg-black hover:bg-black/85 text-white px-5 py-2.5 rounded-full font-label-md text-xs uppercase tracking-widest transition-all duration-300"
@@ -171,13 +191,22 @@ export default function AdminGallery() {
                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" 
               />
               <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-between p-4 z-10">
-                <button 
-                  onClick={() => handleDelete(item.id)}
-                  className="self-end w-9 h-9 flex items-center justify-center bg-red-600 hover:bg-red-700 text-white rounded-full transition-colors border-none"
-                  title="Delete"
-                >
-                  <Trash2 size={16} />
-                </button>
+                <div className="flex justify-between items-center w-full">
+                  <button 
+                    onClick={() => handleEditClick(item)}
+                    className="w-9 h-9 flex items-center justify-center bg-black hover:bg-black/80 text-white rounded-full transition-colors border-none"
+                    title="Edit"
+                  >
+                    <Pencil size={14} />
+                  </button>
+                  <button 
+                    onClick={() => handleDelete(item.id)}
+                    className="w-9 h-9 flex items-center justify-center bg-red-600 hover:bg-red-700 text-white rounded-full transition-colors border-none"
+                    title="Delete"
+                  >
+                    <Trash2 size={16} />
+                  </button>
+                </div>
                 <div>
                   <span className="text-[10px] font-bold text-[#ede0d9] uppercase tracking-widest bg-black/35 px-2.5 py-1 rounded-full backdrop-blur-xs">
                     {item.category || "General"}
@@ -190,12 +219,14 @@ export default function AdminGallery() {
         </div>
       )}
 
-      {/* Upload Modal */}
+      {/* Upload/Edit Modal */}
       {isModalOpen && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-xs p-4">
           <div className="bg-white rounded-3xl shadow-xl w-full max-w-md max-h-[95vh] overflow-hidden flex flex-col">
             <div className="p-6 border-b border-outline-variant/30 flex justify-between items-center bg-[#f8f3ee]">
-              <h3 className="font-display-lg text-lg font-bold text-on-surface">Upload Gallery Media</h3>
+              <h3 className="font-display-lg text-lg font-bold text-on-surface">
+                {editingItem ? "Edit Gallery Media" : "Upload Gallery Media"}
+              </h3>
               <button 
                 onClick={() => setIsModalOpen(false)}
                 className="text-on-surface-variant hover:text-black border-none bg-transparent"
@@ -204,7 +235,7 @@ export default function AdminGallery() {
               </button>
             </div>
 
-            <form onSubmit={handleUpload} className="p-6 space-y-6 flex-1 overflow-y-auto">
+            <form onSubmit={handleSubmit} className="p-6 space-y-6 flex-1 overflow-y-auto">
               {error && (
                 <div className="bg-red-50 text-red-700 p-4 rounded-2xl text-xs font-semibold border border-red-200">
                   {error}
@@ -259,9 +290,9 @@ export default function AdminGallery() {
                   {saving ? (
                     <>
                       <Loader2 size={14} className="animate-spin" />
-                      Uploading...
+                      {editingItem ? "Saving..." : "Uploading..."}
                     </>
-                  ) : "Publish Media"}
+                  ) : editingItem ? "Save Changes" : "Publish Media"}
                 </button>
               </div>
             </form>
