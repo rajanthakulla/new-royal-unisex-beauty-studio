@@ -8,7 +8,12 @@ const prisma = new PrismaClient();
 export const revalidate = 60; // Revalidate every 60 seconds
 
 export default async function ServicesPage() {
-  const dbServices = await prisma.service.findMany();
+  let dbServices: any[] = [];
+  try {
+    dbServices = await prisma.service.findMany();
+  } catch (err) {
+    console.error("Services query failed:", err);
+  }
 
   // Helper function to resolve dynamic service or use fallback templates
   const getService = (keyword: string, fallback: { title: string, description: string, price: number, image: string, slug: string }) => {

@@ -14,18 +14,35 @@ export default async function BookPage({
   const resolvedSearchParams = await searchParams;
   const preSelectedServiceSlug = resolvedSearchParams.service || "";
 
-  // Fetch all services to populate the selection list
-  const services = await prisma.service.findMany({
-    orderBy: { title: "asc" },
-    select: {
-      id: true,
-      title: true,
-      slug: true,
-      price: true,
-    },
-  });
+  let dbServices: any[] = [];
+  try {
+    dbServices = await prisma.service.findMany({
+      orderBy: { title: "asc" },
+      select: {
+        id: true,
+        title: true,
+        slug: true,
+        price: true,
+      },
+    });
+  } catch (err) {
+    console.error("Book page services query failed:", err);
+  }
 
-  const settings = await prisma.siteSettings.findFirst();
+  const fallbackServices = [
+    { id: "fs1", title: "Signature Royal Haircut", slug: "hair-styling", price: 2800 },
+    { id: "fs2", title: "Hydra-Radiance Facial", slug: "facial-skin-care", price: 4500 },
+    { id: "fs3", title: "Bridal Makeup Glow", slug: "bridal-makeup", price: 15000 }
+  ];
+
+  const services = dbServices.length > 0 ? dbServices : fallbackServices;
+
+  let settings = null;
+  try {
+    settings = await prisma.siteSettings.findFirst();
+  } catch (err) {
+    console.error("Book page settings query failed:", err);
+  }
 
   return (
     <main className="pb-24">

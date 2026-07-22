@@ -7,9 +7,14 @@ const prisma = new PrismaClient();
 export const revalidate = 60; // Revalidate every 60 seconds
 
 export default async function GalleryPage() {
-  const dbItems = await prisma.galleryItem.findMany({
-    orderBy: { createdAt: "desc" }
-  });
+  let dbItems: any[] = [];
+  try {
+    dbItems = await prisma.galleryItem.findMany({
+      orderBy: { createdAt: "desc" }
+    });
+  } catch (err) {
+    console.error("Gallery query failed:", err);
+  }
 
   // Gorgeous high-end curated fallbacks in case the DB is empty
   const fallbackItems = [

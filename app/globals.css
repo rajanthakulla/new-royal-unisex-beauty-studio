@@ -123,53 +123,42 @@
     animation: shimmer 4s linear infinite;
   }
   
-  .gold-gradient {
-    background: linear-gradient(135deg, #D4AF37 0%, #C5A028 100%);
+  .gold-gradient-text {
+    background: linear-gradient(135deg, #D4AF37 0%, #F5E6AD 50%, #C5A028 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
   }
   
-  .ivory-glass {
-    background: rgba(255, 248, 240, 0.8);
-    backdrop-filter: blur(12px);
+  .gold-badge {
+    background: linear-gradient(135deg, #D4AF37 0%, #C5A059 100%);
+    box-shadow: 0 4px 14px rgba(212, 175, 55, 0.35);
   }
-  
-  .glass-pill {
-    background: rgba(255, 255, 255, 0.15);
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
-    border: 1px solid rgba(255, 255, 255, 0.2);
+
+  .gold-button {
+    background: linear-gradient(135deg, #D4AF37 0%, #B8860B 100%);
+    color: #ffffff;
+    box-shadow: 0 4px 20px rgba(212, 175, 55, 0.4);
+    transition: all 0.3s ease;
   }
-  
-  .glass-card {
-    background: linear-gradient(135deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0.05) 100%);
+  .gold-button:hover {
+    background: linear-gradient(135deg, #E6C248 0%, #C5900C 100%);
+    box-shadow: 0 6px 24px rgba(212, 175, 55, 0.5);
+    transform: translateY(-2px);
+  }
+
+  .glass-card-luxury {
+    background: rgba(255, 255, 255, 0.75);
     backdrop-filter: blur(16px);
     -webkit-backdrop-filter: blur(16px);
-    border: 1px solid rgba(255, 255, 255, 0.3);
-    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(212, 175, 55, 0.2);
+    box-shadow: 0 10px 40px -10px rgba(197, 160, 89, 0.15);
   }
-  
-  .service-card {
-    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-  }
-  .service-card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 10px 40px -10px rgba(17, 17, 17, 0.08);
-  }
-  
-  .shadow-premium {
-    box-shadow: 0 10px 40px -10px rgba(17, 17, 17, 0.08);
-  }
-  .shadow-premium-hover:hover {
-    box-shadow: 0 20px 40px -10px rgba(17, 17, 17, 0.12);
-  }
-  
-  .price-row:hover .price-dots {
-    border-bottom-style: solid;
-    opacity: 1;
-  }
-  .price-dots {
-    border-bottom: 1px dotted #D4AF37;
-    opacity: 0.4;
-    transition: all 0.3s ease;
+
+  .glass-dark-luxury {
+    background: rgba(33, 26, 22, 0.85);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(212, 175, 55, 0.25);
   }
 }
 

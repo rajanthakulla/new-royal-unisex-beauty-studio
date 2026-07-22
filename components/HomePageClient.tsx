@@ -51,142 +51,287 @@ export default function HomePageClient({ settings, services, testimonials, speci
     <main className="pb-20">
 
       {/* Hero Section */}
-      <section className="relative pt-32 pb-24 px-6 md:px-16 lg:px-20 max-w-7xl mx-auto overflow-visible">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+      <section className="relative pt-32 pb-20 px-6 md:px-16 lg:px-20 max-w-7xl mx-auto overflow-hidden">
+        {/* Subtle Warm Background Glow */}
+        <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gradient-to-tr from-[#D4AF37]/15 via-[#F5E6AD]/20 to-transparent rounded-full blur-3xl pointer-events-none"></div>
+
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-12 items-center relative z-10">
           
-          {/* Left: Text Content */}
+          {/* Left: Punchy Text Content & Strong CTAs */}
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
+            className="lg:col-span-7 space-y-6 text-left"
+            initial={{ opacity: 0, y: 25 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+            transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
           >
-            <div className="flex items-center gap-4 mb-6">
-              <div className="h-px w-12 bg-primary"></div>
-              <span className="font-label-md text-[13px] text-primary uppercase tracking-[0.2em] font-bold">
-                Luxury & Precision
+            <div className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-white/80 border border-[#D4AF37]/40 shadow-sm backdrop-blur-md">
+              <span className="w-2 h-2 rounded-full bg-[#D4AF37] animate-ping"></span>
+              <span className="font-label-md text-[11px] md:text-[12px] uppercase tracking-[0.16em] font-bold text-[#745a32]">
+                Kathmandu&apos;s Luxury Beauty Sanctuary
               </span>
             </div>
-            <h1 className="font-display-lg text-[48px] md:text-[64px] lg:text-[76px] text-on-surface leading-[1.1] mb-8 tracking-tight drop-shadow-sm">
+
+            <h1 className="font-display-lg text-[44px] sm:text-[56px] md:text-[68px] lg:text-[72px] text-on-surface leading-[1.05] tracking-tight font-semibold">
               Unveil Your <br/>
-              <span className="italic text-primary font-light">True Radiance</span>
+              <span className="gold-gradient-text italic font-serif font-normal">True Radiance</span>
             </h1>
-            <p className="font-body-lg text-[18px] text-on-surface-variant mb-6 max-w-xl leading-relaxed">
-              Step into Kathmandu&apos;s premier beauty sanctuary where <strong className="text-on-surface font-semibold">world-class artistry</strong> meets <strong className="text-on-surface font-semibold">unparalleled luxury</strong>. Experience holistic rituals tailored exclusively to elevate your natural glow and rejuvenate your spirit.
+
+            {/* Short, punchy tagline replacing long paragraphs */}
+            <p className="font-body-lg text-[17px] md:text-[19px] text-on-surface-variant max-w-xl leading-relaxed font-normal">
+              Kathmandu&apos;s premier salon for couture hair styling, organic skin rituals & award-winning bridal perfection.
             </p>
-            <ul className="space-y-4 mb-10 text-on-surface-variant font-medium">
-              <li className="flex items-center gap-3">
-                <span className="material-symbols-outlined text-primary text-[22px]">verified</span>
-                <span>Internationally Certified Beauty Experts</span>
-              </li>
-              <li className="flex items-center gap-3">
-                <span className="material-symbols-outlined text-primary text-[22px]">spa</span>
-                <span>Premium Quality Non-Toxic Products</span>
-              </li>
-              <li className="flex items-center gap-3">
-                <span className="material-symbols-outlined text-primary text-[22px]">star</span>
-                <span>Award-Winning Bridal Makeovers</span>
-              </li>
-            </ul>
-            <div className="flex flex-wrap gap-4">
-              <Link href="/services">
+
+            {/* Strong CTAs */}
+            <div className="pt-2 flex flex-wrap items-center gap-4">
+              <Link href="/book">
                 <motion.button 
-                  whileHover={{ scale: 1.05 }} 
-                  whileTap={{ scale: 0.95 }}
-                  className="bg-on-surface text-white px-10 py-4 rounded-full font-label-md text-[12px] uppercase tracking-[0.1em] font-bold hover:bg-primary transition-colors"
+                  whileHover={{ scale: 1.04 }} 
+                  whileTap={{ scale: 0.96 }}
+                  className="gold-button px-8 py-4 rounded-full font-label-md text-[12px] uppercase tracking-[0.12em] font-bold shadow-lg flex items-center gap-2"
                 >
-                  Explore Services
+                  <span className="material-symbols-outlined text-[18px]">calendar_month</span>
+                  Book Your Appointment
                 </motion.button>
               </Link>
-              <Link href="/gallery">
+
+              <Link href="/offers">
                 <motion.button 
-                  whileHover={{ scale: 1.05 }} 
-                  whileTap={{ scale: 0.95 }}
-                  className="border border-outline text-on-surface px-10 py-4 rounded-full font-label-md text-[12px] uppercase tracking-[0.1em] font-bold hover:border-primary hover:text-primary transition-colors"
+                  whileHover={{ scale: 1.04 }} 
+                  whileTap={{ scale: 0.96 }}
+                  className="bg-white/90 border-2 border-[#D4AF37] text-on-surface hover:bg-[#D4AF37]/10 px-7 py-3.5 rounded-full font-label-md text-[12px] uppercase tracking-[0.12em] font-bold transition-all shadow-sm flex items-center gap-2 group"
                 >
-                  View Gallery
+                  <span className="material-symbols-outlined text-[18px] text-[#D4AF37] group-hover:rotate-12 transition-transform">local_offer</span>
+                  Claim Sawan Offer
+                  <span className="text-[9px] bg-red-500 text-white px-2 py-0.5 rounded-full font-bold uppercase animate-pulse">Special</span>
                 </motion.button>
               </Link>
+
+              <a 
+                href={`https://wa.me/${(settings?.whatsappNumber || "9779813451412").replace(/[^0-9]/g, "")}`}
+                target="_blank"
+                rel="noreferrer"
+              >
+                <motion.button 
+                  whileHover={{ scale: 1.04 }} 
+                  whileTap={{ scale: 0.96 }}
+                  className="bg-[#25D366] text-white px-6 py-3.5 rounded-full font-label-md text-[12px] uppercase tracking-[0.1em] font-bold transition-all shadow-md flex items-center gap-2 hover:bg-[#20ba59]"
+                >
+                  <span className="material-symbols-outlined text-[18px]">chat</span>
+                  Book on WhatsApp
+                </motion.button>
+              </a>
+            </div>
+
+            {/* Micro Trust Indicators */}
+            <div className="pt-4 flex items-center gap-6 text-[13px] text-on-surface-variant font-medium">
+              <span className="flex items-center gap-1.5">
+                <span className="material-symbols-outlined text-amber-500 text-[18px]">verified</span>
+                Certified Experts
+              </span>
+              <span className="flex items-center gap-1.5">
+                <span className="material-symbols-outlined text-amber-500 text-[18px]">spa</span>
+                Non-Toxic Products
+              </span>
+              <span className="flex items-center gap-1.5">
+                <span className="material-symbols-outlined text-amber-500 text-[18px]">workspace_premium</span>
+                5-Star Rated
+              </span>
             </div>
           </motion.div>
 
-          {/* Right: Overlapping Images */}
+          {/* Right: High-Impact Visual Card & Salon Showcase */}
           <motion.div 
-            className="relative h-[500px] md:h-[600px] w-full max-w-[550px] mx-auto lg:ml-auto"
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
+            className="lg:col-span-5 relative"
+            initial={{ opacity: 0, scale: 0.95 }}
+            animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
           >
-            {/* Rotated accent rectangle */}
-            <div className="absolute inset-0 bg-primary/5 rounded-2xl -rotate-3"></div>
-            
-            {/* Main Image (top-right) */}
-            <motion.div 
-              className="absolute top-0 right-0 w-4/5 h-4/5 rounded-2xl overflow-hidden shadow-2xl z-10"
-              animate={{ y: [0, -10, 0] }}
-              transition={{ repeat: Infinity, duration: 7, ease: "easeInOut" }}
-            >
+            {/* Main Visual Container with Luxury Frame */}
+            <div className="relative h-[480px] sm:h-[540px] w-full rounded-[2.5rem] overflow-hidden shadow-2xl border-4 border-white/80 glass-card-luxury">
               <Image 
                 src="/gallery/hero-main.png"
-                alt="Beauty Model"
+                alt="New Royal Beauty Salon Experience"
                 fill
-                className="object-cover"
+                className="object-cover object-top hover:scale-105 transition-transform duration-700"
                 priority
-                sizes="(max-width: 768px) 80vw, 40vw"
+                sizes="(max-width: 1024px) 100vw, 45vw"
               />
-            </motion.div>
-            
-            {/* Secondary Image (bottom-left, overlapping) */}
+
+              {/* Gradient Overlay */}
+              <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent"></div>
+
+              {/* Live Salon Reel Badge */}
+              <div className="absolute top-6 left-6 glass-dark-luxury px-4 py-2 rounded-full flex items-center gap-2.5 text-white shadow-lg border border-white/20">
+                <span className="w-2.5 h-2.5 rounded-full bg-red-500 animate-ping"></span>
+                <span className="text-[11px] font-bold tracking-wider uppercase">Cinematic Salon Studio</span>
+              </div>
+
+              {/* Bottom Card Overlay */}
+              <div className="absolute bottom-6 left-6 right-6 p-5 glass-dark-luxury rounded-2xl text-white border border-white/15 backdrop-blur-md">
+                <div className="flex items-center justify-between mb-2">
+                  <div className="flex items-center gap-1 text-[#FBBC05]">
+                    {Array.from({ length: 5 }).map((_, i) => (
+                      <span key={i} className="material-symbols-outlined text-[16px]" style={{fontVariationSettings:"'FILL' 1"}}>star</span>
+                    ))}
+                  </div>
+                  <span className="text-[11px] bg-white/20 px-2.5 py-0.5 rounded-full font-bold uppercase text-[#F5E6AD]">Verified Reviews</span>
+                </div>
+                <p className="font-display-lg text-lg font-bold text-[#ede0d9] leading-tight">
+                  &ldquo;The best beauty salon experience in Kathmandu. Pure luxury & care!&rdquo;
+                </p>
+                <p className="text-[12px] text-white/70 mt-1 font-body-md">— Satisfied Client, Kathmandu</p>
+              </div>
+            </div>
+
+            {/* Overlapping Secondary Image */}
             <motion.div 
-              className="absolute bottom-0 left-0 w-3/5 h-3/5 rounded-2xl overflow-hidden shadow-xl z-20 border-8 border-background"
-              animate={{ y: [0, -12, 0] }}
-              transition={{ repeat: Infinity, duration: 6, ease: "easeInOut" }}
+              className="absolute -bottom-6 -left-6 w-36 h-36 sm:w-44 sm:h-44 rounded-2xl overflow-hidden shadow-2xl border-4 border-white z-20 hidden sm:block"
+              animate={{ y: [0, -8, 0] }}
+              transition={{ repeat: Infinity, duration: 5, ease: "easeInOut" }}
             >
               <Image 
                 src="/gallery/salon-1.webp"
-                alt="Spa Treatment"
+                alt="Salon Interior"
                 fill
-                priority
                 className="object-cover"
-                sizes="(max-width: 768px) 60vw, 30vw"
+                sizes="176px"
               />
             </motion.div>
+
           </motion.div>
 
         </div>
       </section>
 
-      {/* 3. Google Rating & Stats */}
-      <section className="relative z-30 px-margin-desktop max-w-container-max mx-auto py-16">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-0 bg-white shadow-premium border border-primary-container/20">
-          <ScrollReveal delay={0.1} className="flex flex-col items-center justify-center p-8 border-b md:border-b-0 md:border-r border-primary-container/10 hover:bg-surface-container-low transition-colors group">
-            <span className="text-[#4285F4] font-bold text-xl mb-2 flex items-center gap-1">
-              G <span className="material-symbols-outlined text-[18px] text-[#FBBC05]" style={{fontVariationSettings:"'FILL' 1"}}>star</span>
+      {/* 3. Google Rating & Stats Bar */}
+      <section className="relative z-30 px-margin-desktop max-w-container-max mx-auto py-10">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-0 bg-white/90 backdrop-blur-md shadow-xl border border-[#D4AF37]/25 rounded-3xl overflow-hidden">
+          <ScrollReveal delay={0.1} className="flex flex-col items-center justify-center p-8 border-b md:border-b-0 md:border-r border-[#D4AF37]/15 hover:bg-[#FAF9F6] transition-colors group">
+            <span className="text-[#4285F4] font-bold text-xl mb-1 flex items-center gap-1">
+              G <span className="material-symbols-outlined text-[20px] text-[#FBBC05]" style={{fontVariationSettings:"'FILL' 1"}}>star</span>
             </span>
-            <div className="font-headline-lg text-headline-lg text-on-surface">4.9 / 5</div>
-            <div className="font-label-md text-label-md text-on-surface-variant mt-1">Google Rating</div>
+            <div className="font-headline-lg text-headline-lg font-bold text-on-surface">4.9 / 5.0</div>
+            <div className="font-label-md text-label-md text-on-surface-variant mt-1 font-medium">500+ Google Reviews</div>
           </ScrollReveal>
-          <ScrollReveal delay={0.2} className="flex flex-col items-center justify-center p-8 border-b md:border-b-0 md:border-r border-primary-container/5 hover:bg-surface-container-low transition-colors group">
-            <span className="material-symbols-outlined text-primary text-[32px] mb-2 group-hover:scale-110 transition-transform">favorite</span>
-            <div className="font-headline-lg text-headline-lg text-primary">
+          
+          <ScrollReveal delay={0.2} className="flex flex-col items-center justify-center p-8 border-b md:border-b-0 md:border-r border-[#D4AF37]/15 hover:bg-[#FAF9F6] transition-colors group">
+            <span className="material-symbols-outlined text-[#D4AF37] text-[32px] mb-1 group-hover:scale-110 transition-transform">favorite</span>
+            <div className="font-headline-lg text-headline-lg font-bold text-on-surface">
               <AnimatedNumber value={1000} suffix="+" />
             </div>
-            <div className="font-label-md text-label-md text-on-surface-variant mt-1">Happy Clients</div>
+            <div className="font-label-md text-label-md text-on-surface-variant mt-1 font-medium">Happy Clients</div>
           </ScrollReveal>
-          <ScrollReveal delay={0.3} className="flex flex-col items-center justify-center p-8 border-b md:border-b-0 md:border-r border-primary-container/5 hover:bg-surface-container-low transition-colors group">
-            <span className="material-symbols-outlined text-primary text-[32px] mb-2 group-hover:scale-110 transition-transform">workspace_premium</span>
-            <div className="font-headline-lg text-headline-lg text-primary">
+          
+          <ScrollReveal delay={0.3} className="flex flex-col items-center justify-center p-8 border-b md:border-b-0 md:border-r border-[#D4AF37]/15 hover:bg-[#FAF9F6] transition-colors group">
+            <span className="material-symbols-outlined text-[#D4AF37] text-[32px] mb-1 group-hover:scale-110 transition-transform">workspace_premium</span>
+            <div className="font-headline-lg text-headline-lg font-bold text-on-surface">
               <AnimatedNumber value={10} suffix="+" />
             </div>
-            <div className="font-label-md text-label-md text-on-surface-variant mt-1">Years Experience</div>
+            <div className="font-label-md text-label-md text-on-surface-variant mt-1 font-medium">Years Experience</div>
           </ScrollReveal>
-          <ScrollReveal delay={0.4} className="flex flex-col items-center justify-center p-8 hover:bg-surface-container-low transition-colors group">
-            <span className="material-symbols-outlined text-primary text-[32px] mb-2 group-hover:scale-110 transition-transform">location_on</span>
-            <div className="font-headline-lg text-headline-lg text-primary">1.3 km</div>
-            <Link href="/contact" className="font-label-md text-label-md text-primary mt-1 hover:underline flex items-center">
+          
+          <ScrollReveal delay={0.4} className="flex flex-col items-center justify-center p-8 hover:bg-[#FAF9F6] transition-colors group">
+            <span className="material-symbols-outlined text-[#D4AF37] text-[32px] mb-1 group-hover:scale-110 transition-transform">location_on</span>
+            <div className="font-headline-lg text-headline-lg font-bold text-on-surface">New Baneshwor</div>
+            <Link href="/contact" className="font-label-md text-label-md text-primary mt-1 hover:underline flex items-center font-semibold">
               Find Us on Map <span className="material-symbols-outlined text-[16px]">arrow_forward</span>
             </Link>
           </ScrollReveal>
         </div>
+      </section>
+
+      {/* 3.1 Awards & Certifications Showcase */}
+      <section className="py-16 bg-gradient-to-b from-[#FAF9F6] via-white to-[#F8F5EF] border-y border-[#D4AF37]/20">
+        <div className="w-[92%] max-w-[1240px] mx-auto px-4 md:px-12">
+          <ScrollReveal delay={0.1} className="text-center mb-12 space-y-3">
+            <span className="text-[12px] font-label-md uppercase tracking-[0.2em] text-[#745a32] block font-bold">
+              TRUST & EXCELLENCE
+            </span>
+            <h2 className="font-display-lg text-[32px] md:text-[42px] text-on-surface font-semibold">
+              Awards & Certifications
+            </h2>
+            <p className="font-body-lg text-[16px] text-on-surface-variant max-w-xl mx-auto leading-relaxed">
+              We hold the highest global standards for hair transformations, aesthetic care, and hygiene.
+            </p>
+          </ScrollReveal>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            <ScrollReveal delay={0.15} className="glass-card-luxury p-6 rounded-3xl border border-[#D4AF37]/30 flex flex-col items-center text-center group hover:-translate-y-1.5 transition-all duration-300">
+              <div className="w-14 h-14 rounded-2xl gold-badge flex items-center justify-center text-white mb-4 shadow-md group-hover:scale-110 transition-transform">
+                <span className="material-symbols-outlined text-[28px]">verified</span>
+              </div>
+              <h3 className="font-display-lg text-[19px] font-bold text-on-surface mb-2">L&apos;Oréal & Wella Certified</h3>
+              <p className="font-body-md text-[13.5px] text-on-surface-variant leading-relaxed">
+                Internationally trained stylists certified in advanced colorology & keratin care.
+              </p>
+            </ScrollReveal>
+
+            <ScrollReveal delay={0.2} className="glass-card-luxury p-6 rounded-3xl border border-[#D4AF37]/30 flex flex-col items-center text-center group hover:-translate-y-1.5 transition-all duration-300">
+              <div className="w-14 h-14 rounded-2xl gold-badge flex items-center justify-center text-white mb-4 shadow-md group-hover:scale-110 transition-transform">
+                <span className="material-symbols-outlined text-[28px]">military_tech</span>
+              </div>
+              <h3 className="font-display-lg text-[19px] font-bold text-on-surface mb-2">Top Rated Studio 2024</h3>
+              <p className="font-body-md text-[13.5px] text-on-surface-variant leading-relaxed">
+                Voted #1 luxury unisex beauty salon experience in New Baneshwor, Kathmandu.
+              </p>
+            </ScrollReveal>
+
+            <ScrollReveal delay={0.25} className="glass-card-luxury p-6 rounded-3xl border border-[#D4AF37]/30 flex flex-col items-center text-center group hover:-translate-y-1.5 transition-all duration-300">
+              <div className="w-14 h-14 rounded-2xl gold-badge flex items-center justify-center text-white mb-4 shadow-md group-hover:scale-110 transition-transform">
+                <span className="material-symbols-outlined text-[28px]">starlight</span>
+              </div>
+              <h3 className="font-display-lg text-[19px] font-bold text-on-surface mb-2">Master Bridal Artistry</h3>
+              <p className="font-body-md text-[13.5px] text-on-surface-variant leading-relaxed">
+                Award-winning HD bridal makeover specialist with bespoke pre-wedding rituals.
+              </p>
+            </ScrollReveal>
+
+            <ScrollReveal delay={0.3} className="glass-card-luxury p-6 rounded-3xl border border-[#D4AF37]/30 flex flex-col items-center text-center group hover:-translate-y-1.5 transition-all duration-300">
+              <div className="w-14 h-14 rounded-2xl gold-badge flex items-center justify-center text-white mb-4 shadow-md group-hover:scale-110 transition-transform">
+                <span className="material-symbols-outlined text-[28px]">sanitizer</span>
+              </div>
+              <h3 className="font-display-lg text-[19px] font-bold text-on-surface mb-2">100% Sanitized Studio</h3>
+              <p className="font-body-md text-[13.5px] text-on-surface-variant leading-relaxed">
+                Medical-grade tool sterilization, single-use kits & non-toxic luxury products.
+              </p>
+            </ScrollReveal>
+          </div>
+        </div>
+      </section>
+
+      {/* 3.2 Premium Brand Partners Showcase */}
+      <section className="py-14 bg-[#211a16] text-[#ede0d9] overflow-hidden border-b border-white/10 relative">
+        <div className="w-[92%] max-w-[1240px] mx-auto px-4 text-center mb-8">
+          <span className="text-[11px] font-label-md uppercase tracking-[0.22em] text-[#D4AF37] block font-bold mb-1">
+            WORLD-CLASS EXCELLENCE
+          </span>
+          <h3 className="font-display-lg text-[24px] md:text-[28px] font-semibold text-white">
+            Premium Brands We Work With
+          </h3>
+        </div>
+
+        <Marquee speed={35} pauseOnHover gradient={true} gradientColor="#211a16">
+          {[
+            { name: "L'Oréal Professional", origin: "Paris", tag: "Hair Care & Color" },
+            { name: "Wella Professionals", origin: "Germany", tag: "Keratin & Shine" },
+            { name: "Schwarzkopf Professional", origin: "Germany", tag: "Couture Styling" },
+            { name: "Olaplex", origin: "California", tag: "Bond Building Treatment" },
+            { name: "Dyson Beauty", origin: "UK", tag: "Precision Styling Tools" },
+            { name: "MAC Cosmetics", origin: "USA", tag: "HD Bridal Makeover" },
+          ].map((brand, idx) => (
+            <div 
+              key={idx} 
+              className="mx-4 px-8 py-5 rounded-2xl bg-white/5 border border-white/10 hover:border-[#D4AF37]/60 hover:bg-white/10 transition-all duration-300 flex flex-col items-center justify-center shrink-0 min-w-[220px]"
+            >
+              <span className="font-display-lg text-lg font-bold text-white tracking-wide">{brand.name}</span>
+              <div className="flex items-center gap-2 mt-1 text-[11px] text-[#D4AF37]">
+                <span>{brand.tag}</span>
+                <span className="opacity-40">•</span>
+                <span className="text-white/60">{brand.origin}</span>
+              </div>
+            </div>
+          ))}
+        </Marquee>
       </section>
 
       {/* 3.5 Our Rituals / Process */}
@@ -344,8 +489,11 @@ export default function HomePageClient({ settings, services, testimonials, speci
                     <span className="font-semibold text-primary text-sm">Keratin & Premium Color</span>
                   </div>
                 </div>
-                <Link href={`https://wa.me/${settings.whatsappNumber}`} target="_blank">
-                  <button className="w-full mt-8 py-4 bg-primary text-[#111111] font-label-md hover:bg-primary/90 transition-colors uppercase tracking-widest">Book Similar Treatment</button>
+                <Link href={`https://wa.me/${(settings?.whatsappNumber || "9779813451412").replace(/[^0-9]/g, "")}`} target="_blank">
+                  <button className="w-full mt-8 py-4 gold-button font-label-md uppercase tracking-[0.12em] font-bold rounded-xl flex items-center justify-center gap-2">
+                    <span className="material-symbols-outlined text-[18px]">chat</span>
+                    Book Similar Treatment on WhatsApp
+                  </button>
                 </Link>
               </div>
             </ScrollReveal>

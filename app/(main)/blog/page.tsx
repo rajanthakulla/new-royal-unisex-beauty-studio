@@ -9,10 +9,15 @@ const prisma = new PrismaClient();
 export const revalidate = 60; // Revalidate every 60 seconds
 
 export default async function BlogPage() {
-  const dbBlogs = await prisma.blog.findMany({
-    where: { published: true },
-    orderBy: { createdAt: "desc" }
-  });
+  let dbBlogs: any[] = [];
+  try {
+    dbBlogs = await prisma.blog.findMany({
+      where: { published: true },
+      orderBy: { createdAt: "desc" }
+    });
+  } catch (err) {
+    console.error("Blog query failed:", err);
+  }
 
   const fallbackBlogs = [
     {

@@ -18,11 +18,21 @@ export default function Footer({ settings }: FooterProps) {
           
           {/* Brand & Social Column */}
           <div className="space-y-4 max-w-sm">
-            <Link href="/" className="flex items-center gap-3">
-              <Image src="/logo.png" alt="New Royal Logo" width={48} height={48} className="object-contain" />
+            <Link href="/" className="flex items-center gap-3.5 group">
+              <Image 
+                src="/logo.png" 
+                alt="New Royal Beauty Studio & Unisex Salon" 
+                width={60} 
+                height={60} 
+                className="object-contain h-[56px] w-[56px] transition-transform duration-300 group-hover:scale-105" 
+              />
               <div className="flex flex-col">
-                <span className="font-display-lg text-[18px] font-semibold text-[#ede0d9]">New Royal</span>
-                <span className="text-[10px] uppercase tracking-wider text-[#8c827c]">Beauty & Unisex Salon</span>
+                <span className="font-display-lg text-[20px] font-bold text-[#ede0d9] leading-tight group-hover:text-primary transition-colors">
+                  New Royal
+                </span>
+                <span className="text-[10px] uppercase font-bold tracking-[0.16em] text-[#D4AF37]">
+                  Beauty & Unisex Salon
+                </span>
               </div>
             </Link>
             <p className="text-[#8c827c] text-[13px] leading-relaxed">

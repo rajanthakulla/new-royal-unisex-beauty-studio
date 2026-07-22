@@ -8,10 +8,27 @@ const prisma = new PrismaClient();
 export const revalidate = 60;
 
 export default async function OffersPage() {
-  const offers = await prisma.offer.findMany({
-    where: { isActive: true },
-    orderBy: { createdAt: "desc" }
-  });
+  let dbOffers: any[] = [];
+  try {
+    dbOffers = await prisma.offer.findMany({
+      where: { isActive: true },
+      orderBy: { createdAt: "desc" }
+    });
+  } catch (err) {
+    console.error("Offers query failed:", err);
+  }
+
+  const fallbackOffers = [
+    {
+      id: "fo1",
+      title: "Bridal Trial Special",
+      description: "Get 50% off your bridal trial session when you book your wedding date with us.",
+      discount: "50% OFF",
+      validUntil: new Date("2026-12-31T00:00:00.000Z")
+    }
+  ];
+
+  const offers = dbOffers.length > 0 ? dbOffers : fallbackOffers;
 
   return (
     <main className="pb-24">

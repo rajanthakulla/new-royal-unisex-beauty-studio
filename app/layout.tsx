@@ -17,8 +17,8 @@ const outfit = Outfit({
 });
 
 export const metadata: Metadata = {
-  title: "New Royal Beauty & Unisex Salon",
-  description: "Experience the finest luxury grooming and bridal services at the Best Unisex Salon in New Baneshwor, Kathmandu.",
+  title: "New Royal Beauty Studio & Unisex Salon | Luxury Salon in Kathmandu",
+  description: "Experience world-class hair care, skin rituals & bridal makeover services at New Royal Beauty Studio & Unisex Salon in New Baneshwor, Kathmandu.",
 };
 
 export default function RootLayout({

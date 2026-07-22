@@ -7,12 +7,17 @@ const prisma = new PrismaClient();
 export const revalidate = 60;
 
 export default async function PricingPage() {
-  const categories = await prisma.category.findMany({
-    include: {
-      services: true
-    },
-    orderBy: { name: "asc" }
-  });
+  let categories: any[] = [];
+  try {
+    categories = await prisma.category.findMany({
+      include: {
+        services: true
+      },
+      orderBy: { name: "asc" }
+    });
+  } catch (err) {
+    console.error("Pricing query failed:", err);
+  }
 
   return (
     <main className="pb-24">
@@ -22,7 +27,7 @@ export default async function PricingPage() {
       />
       
       <section className="px-6 md:px-16 lg:px-20 w-[92%] max-w-[800px] mx-auto py-20 space-y-16">
-        {categories.length > 0 ? categories.map((cat, i) => (
+        {categories.length > 0 ? categories.map((cat: any, i: number) => (
           <div key={cat.id} className="space-y-8">
             <ScrollReveal delay={0.1}>
               <h2 className="font-display-lg text-[24px] md:text-[28px] font-semibold text-on-surface border-b border-primary-container/15 pb-4">
@@ -31,7 +36,7 @@ export default async function PricingPage() {
             </ScrollReveal>
             
             <div className="space-y-4">
-              {cat.services.map((service, j) => (
+              {cat.services.map((service: any, j: number) => (
                 <ScrollReveal 
                   key={service.id} 
                   delay={0.05 * (j % 5)} 

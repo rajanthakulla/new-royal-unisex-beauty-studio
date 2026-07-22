@@ -10,7 +10,12 @@ export default async function MainLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const settings = await prisma.siteSettings.findFirst();
+  let settings = null;
+  try {
+    settings = await prisma.siteSettings.findFirst();
+  } catch (err) {
+    console.error("Layout settings query failed:", err);
+  }
 
   return (
     <>

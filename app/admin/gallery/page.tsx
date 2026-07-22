@@ -182,7 +182,7 @@ export default function AdminGallery() {
           <p className="text-sm max-w-sm">No items found under this category filter.</p>
         </div>
       ) : (
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6">
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3 sm:gap-6">
           {filteredItems.map((item) => (
             <div key={item.id} className="relative aspect-square rounded-3xl bg-surface-container-low overflow-hidden group border border-[#d0c4bd]/30 shadow-sm">
               <img 
@@ -190,28 +190,28 @@ export default function AdminGallery() {
                 alt={item.caption || "Gallery item"} 
                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" 
               />
-              <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-between p-4 z-10">
+              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/25 to-black/50 md:bg-black/65 md:opacity-0 md:group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-between p-3 md:p-4 z-10">
                 <div className="flex justify-between items-center w-full">
                   <button 
                     onClick={() => handleEditClick(item)}
-                    className="w-9 h-9 flex items-center justify-center bg-black hover:bg-black/80 text-white rounded-full transition-colors border-none"
+                    className="w-8 h-8 md:w-9 md:h-9 flex items-center justify-center bg-black hover:bg-black/80 text-white rounded-full transition-colors border-none"
                     title="Edit"
                   >
-                    <Pencil size={14} />
+                    <Pencil size={13} className="md:w-3.5 md:h-3.5" />
                   </button>
                   <button 
                     onClick={() => handleDelete(item.id)}
-                    className="w-9 h-9 flex items-center justify-center bg-red-600 hover:bg-red-700 text-white rounded-full transition-colors border-none"
+                    className="w-8 h-8 md:w-9 md:h-9 flex items-center justify-center bg-red-600 hover:bg-red-700 text-white rounded-full transition-colors border-none"
                     title="Delete"
                   >
-                    <Trash2 size={16} />
+                    <Trash2 size={14} className="md:w-[16px] md:h-[16px]" />
                   </button>
                 </div>
                 <div>
-                  <span className="text-[10px] font-bold text-[#ede0d9] uppercase tracking-widest bg-black/35 px-2.5 py-1 rounded-full backdrop-blur-xs">
+                  <span className="text-[9px] md:text-[10px] font-bold text-[#ede0d9] uppercase tracking-widest bg-black/35 px-2 md:px-2.5 py-0.5 md:py-1 rounded-full backdrop-blur-xs">
                     {item.category || "General"}
                   </span>
-                  <p className="text-xs text-white font-medium mt-2 line-clamp-2">{item.caption || "—"}</p>
+                  <p className="text-[11px] md:text-xs text-white font-medium mt-1.5 md:mt-2 line-clamp-2">{item.caption || "—"}</p>
                 </div>
               </div>
             </div>
