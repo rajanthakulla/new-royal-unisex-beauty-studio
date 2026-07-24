@@ -310,28 +310,35 @@ export default function HomePageClient({ settings, services, testimonials, speci
           </h3>
         </div>
 
-        <Marquee speed={35} pauseOnHover gradient={true} gradientColor="#211a16">
-          {[
-            { name: "L'Oréal Professional", origin: "Paris", tag: "Hair Care & Color" },
-            { name: "Wella Professionals", origin: "Germany", tag: "Keratin & Shine" },
-            { name: "Schwarzkopf Professional", origin: "Germany", tag: "Couture Styling" },
-            { name: "Olaplex", origin: "California", tag: "Bond Building Treatment" },
-            { name: "Dyson Beauty", origin: "UK", tag: "Precision Styling Tools" },
-            { name: "MAC Cosmetics", origin: "USA", tag: "HD Bridal Makeover" },
-          ].map((brand, idx) => (
-            <div 
-              key={idx} 
-              className="mx-4 px-8 py-5 rounded-2xl bg-white/5 border border-white/10 hover:border-[#D4AF37]/60 hover:bg-white/10 transition-all duration-300 flex flex-col items-center justify-center shrink-0 min-w-[220px]"
-            >
-              <span className="font-display-lg text-lg font-bold text-white tracking-wide">{brand.name}</span>
-              <div className="flex items-center gap-2 mt-1 text-[11px] text-[#D4AF37]">
-                <span>{brand.tag}</span>
-                <span className="opacity-40">•</span>
-                <span className="text-white/60">{brand.origin}</span>
+        {/* Marquee Container with Blur Vanishing Effect on Left and Right */}
+        <div className="relative w-full overflow-hidden [mask-image:linear-gradient(to_right,transparent_0%,black_10%,black_90%,transparent_100%)] [-webkit-mask-image:linear-gradient(to_right,transparent_0%,black_10%,black_90%,transparent_100%)]">
+          {/* Left & Right Fade & Blur Overlays */}
+          <div className="absolute top-0 bottom-0 left-0 w-24 sm:w-44 bg-gradient-to-r from-[#211a16] via-[#211a16]/90 to-transparent z-10 pointer-events-none backdrop-blur-[2px]"></div>
+          <div className="absolute top-0 bottom-0 right-0 w-24 sm:w-44 bg-gradient-to-l from-[#211a16] via-[#211a16]/90 to-transparent z-10 pointer-events-none backdrop-blur-[2px]"></div>
+
+          <Marquee speed={35} pauseOnHover gradient={false}>
+            {[
+              { name: "L'Oréal Professional", origin: "Paris", tag: "Hair Care & Color" },
+              { name: "Wella Professionals", origin: "Germany", tag: "Keratin & Shine" },
+              { name: "Schwarzkopf Professional", origin: "Germany", tag: "Couture Styling" },
+              { name: "Olaplex", origin: "California", tag: "Bond Building Treatment" },
+              { name: "Dyson Beauty", origin: "UK", tag: "Precision Styling Tools" },
+              { name: "MAC Cosmetics", origin: "USA", tag: "HD Bridal Makeover" },
+            ].map((brand, idx) => (
+              <div 
+                key={idx} 
+                className="mx-4 px-8 py-5 rounded-2xl bg-white/5 border border-white/10 hover:border-[#D4AF37]/60 hover:bg-white/10 transition-all duration-300 flex flex-col items-center justify-center shrink-0 min-w-[220px]"
+              >
+                <span className="font-display-lg text-lg font-bold text-white tracking-wide">{brand.name}</span>
+                <div className="flex items-center gap-2 mt-1 text-[11px] text-[#D4AF37]">
+                  <span>{brand.tag}</span>
+                  <span className="opacity-40">•</span>
+                  <span className="text-white/60">{brand.origin}</span>
+                </div>
               </div>
-            </div>
-          ))}
-        </Marquee>
+            ))}
+          </Marquee>
+        </div>
       </section>
 
       {/* 3.5 Our Rituals / Process */}
