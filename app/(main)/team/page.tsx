@@ -103,8 +103,8 @@ export default function TeamPage() {
               
               <div className="mt-auto pt-4 border-t border-primary-container/5 flex justify-between items-center text-[12px]">
                 <span className="font-bold text-on-surface-variant/80 tracking-wide">{specialist.exp}</span>
-                <a className="text-[#745a32] hover:underline flex items-center gap-1 font-bold" href="/book">
-                  Book Slot <span className="material-symbols-outlined text-[14px]">arrow_forward</span>
+                <a className="text-[#745a32] hover:text-black flex items-center gap-1 font-bold transition-colors group" href="/book">
+                  Book Slot <span className="material-symbols-outlined text-[14px] group-hover:translate-x-1 transition-transform">arrow_forward</span>
                 </a>
               </div>
             </ScrollReveal>

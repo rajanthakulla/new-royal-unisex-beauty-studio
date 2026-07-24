@@ -116,7 +116,7 @@ export default function ImageUploader({ value, onChange, label = "Upload Image" 
         ) : (
           <div className="flex flex-col items-center gap-2 text-center text-on-surface-variant">
             <UploadCloud className="w-10 h-10 text-on-surface-variant/40" />
-            <p className="text-sm font-medium">Drag &amp; drop your image here, or <label className="text-black hover:underline cursor-pointer font-bold">browse<input type="file" accept="image/*" className="hidden" onChange={handleFileChange} /></label></p>
+            <p className="text-sm font-medium">Drag &amp; drop your image here, or <label className="text-black hover:opacity-70 cursor-pointer font-bold transition-opacity">browse<input type="file" accept="image/*" className="hidden" onChange={handleFileChange} /></label></p>
             <p className="text-xs text-on-surface-variant/60">Supports PNG, JPG, JPEG, WEBP</p>
           </div>
         )}

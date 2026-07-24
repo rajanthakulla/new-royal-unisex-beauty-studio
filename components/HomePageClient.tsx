@@ -135,7 +135,7 @@ export default function HomePageClient({ settings, services, testimonials, speci
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
           >
-            {/* Main Visual Frame */}
+            {/* Main Visual Frame - Clean & Unobscured */}
             <div className="relative h-[500px] sm:h-[560px] w-full rounded-[2.5rem] overflow-hidden shadow-2xl border-4 border-white glass-card-luxury group">
               <Image 
                 src="/gallery/hero-main.png"
@@ -145,56 +145,7 @@ export default function HomePageClient({ settings, services, testimonials, speci
                 priority
                 sizes="(max-width: 1024px) 100vw, 45vw"
               />
-
-              {/* Gradient Vignette */}
-              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
-
-              {/* Top Glass Rating Badge */}
-              <div className="absolute top-5 left-5 right-5 flex justify-between items-center z-10">
-                <div className="glass-dark-luxury px-4 py-2 rounded-full flex items-center gap-2 text-white shadow-lg border border-white/20">
-                  <div className="flex text-[#FBBC05]">
-                    {Array.from({ length: 5 }).map((_, i) => (
-                      <span key={i} className="material-symbols-outlined text-[15px]" style={{fontVariationSettings:"'FILL' 1"}}>star</span>
-                    ))}
-                  </div>
-                  <span className="text-[11.5px] font-bold text-white tracking-wide">4.9/5.0 Google</span>
-                </div>
-
-                <div className="glass-dark-luxury px-3.5 py-1.5 rounded-full text-white text-[11px] font-bold uppercase tracking-widest border border-white/20">
-                  Kathmandu
-                </div>
-              </div>
-
-              {/* Bottom Testimonial Overlay Card (Pristine formatting, no cutoffs!) */}
-              <div className="absolute bottom-5 left-5 right-5 p-5 glass-dark-luxury rounded-2xl text-white border border-white/20 backdrop-blur-md space-y-1.5 z-10">
-                <p className="font-display-lg text-[16px] md:text-[17px] font-semibold text-[#ede0d9] leading-snug">
-                  &ldquo;Kathmandu&apos;s absolute best beauty studio. The hair care & bridal makeover are unmatched!&rdquo;
-                </p>
-                <div className="flex items-center justify-between text-[12px] text-white/70 font-body-md pt-1">
-                  <span>— Verified Client Review</span>
-                  <span className="text-[#D4AF37] font-bold uppercase text-[10px] tracking-wider">New Baneshwor</span>
-                </div>
-              </div>
             </div>
-
-            {/* Floating Secondary Gallery Card (Positioned cleanly without overlapping text) */}
-            <motion.div 
-              className="absolute -bottom-6 -left-6 w-36 h-36 sm:w-44 sm:h-44 rounded-2xl overflow-hidden shadow-2xl border-4 border-white z-20 hidden sm:block"
-              animate={{ y: [0, -8, 0] }}
-              transition={{ repeat: Infinity, duration: 6, ease: "easeInOut" }}
-            >
-              <Image 
-                src="/gallery/salon-1.webp"
-                alt="New Royal Beauty Salon Interior"
-                fill
-                className="object-cover"
-                sizes="176px"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
-              <span className="absolute bottom-2 left-2 text-[10px] text-white font-bold bg-black/60 px-2 py-0.5 rounded-md backdrop-blur-sm">
-                Sanitised Studio
-              </span>
-            </motion.div>
 
           </motion.div>
 
@@ -231,8 +182,8 @@ export default function HomePageClient({ settings, services, testimonials, speci
           <ScrollReveal delay={0.4} className="flex flex-col items-center justify-center p-8 hover:bg-[#FAF9F6] transition-colors group">
             <span className="material-symbols-outlined text-[#D4AF37] text-[32px] mb-1 group-hover:scale-110 transition-transform">location_on</span>
             <div className="font-headline-lg text-headline-lg font-bold text-on-surface">New Baneshwor</div>
-            <Link href="/contact" className="font-label-md text-label-md text-primary mt-1 hover:underline flex items-center font-semibold">
-              Find Us on Map <span className="material-symbols-outlined text-[16px]">arrow_forward</span>
+            <Link href="/contact" className="font-label-md text-label-md text-primary mt-1 hover:text-black flex items-center font-semibold transition-colors group">
+              Find Us on Map <span className="material-symbols-outlined text-[16px] group-hover:translate-x-1 transition-transform">arrow_forward</span>
             </Link>
           </ScrollReveal>
         </div>
@@ -537,8 +488,8 @@ export default function HomePageClient({ settings, services, testimonials, speci
               <span className="text-xs font-bold text-on-surface-variant uppercase tracking-wider block mb-2">{service.category?.name || "Service"}</span>
               <h3 className="font-headline-md text-headline-md text-on-surface mb-3 group-hover:text-primary transition-colors">{service.title}</h3>
               <p className="text-on-surface-variant font-body-md mb-6 line-clamp-3">{service.description}</p>
-              <Link href={`/services/${service.slug}`} className="font-label-md text-primary flex items-center gap-1 hover:underline">
-                Book Service <span className="material-symbols-outlined text-[16px]">arrow_forward</span>
+              <Link href={`/services/${service.slug}`} className="font-label-md text-primary flex items-center gap-1 hover:text-black transition-colors group">
+                Book Service <span className="material-symbols-outlined text-[16px] group-hover:translate-x-1 transition-transform">arrow_forward</span>
               </Link>
             </ScrollReveal>
           )) : (
@@ -730,7 +681,7 @@ export default function HomePageClient({ settings, services, testimonials, speci
                 </div>
                 <div>
                   <p className="font-label-lg text-label-lg text-on-surface">
-                    <a href={settings.googleMapsUrl || "https://maps.google.com/?q=M8RP%2BCCR,+Kathmandu+44600"} target="_blank" rel="noopener noreferrer" className="hover:underline">
+                    <a href={settings.googleMapsUrl || "https://maps.google.com/?q=M8RP%2BCCR,+Kathmandu+44600"} target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">
                       {settings.address}
                     </a>
                   </p>

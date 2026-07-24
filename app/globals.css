@@ -170,6 +170,10 @@ html, body {
   overflow-x: hidden;
 }
 
+a, a:hover, a:focus {
+  text-decoration: none !important;
+}
+
 body {
   background-color: var(--color-background);
   color: var(--color-on-surface);

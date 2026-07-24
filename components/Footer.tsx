@@ -89,7 +89,7 @@ export default function Footer({ settings }: FooterProps) {
             </div>
             <div className="flex items-center gap-2">
               <span className="material-symbols-outlined text-[16px] text-[#e3c191]">location_on</span>
-              <a href={settings?.googleMapsUrl || "https://maps.google.com/?q=M8RP%2BCCR,+Kathmandu+44600"} target="_blank" rel="noopener noreferrer" className="hover:underline">
+              <a href={settings?.googleMapsUrl || "https://maps.google.com/?q=M8RP%2BCCR,+Kathmandu+44600"} target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">
                 {settings?.address || "M8RP+CCR, Kathmandu 44600"}
               </a>
             </div>
