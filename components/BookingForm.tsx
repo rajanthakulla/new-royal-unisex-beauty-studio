@@ -231,7 +231,7 @@ export default function BookingForm({ services, preSelectedSlug, settings }: Boo
                   <p className="text-[10px] font-label-md uppercase tracking-wider text-[#ede0d9]/60 font-bold">ADDRESS</p>
                   <p className="text-[14px] text-white/90 leading-relaxed">
                     <a href={settings?.googleMapsUrl || "https://maps.google.com/?q=M8RP%2BCCR,+Kathmandu+44600"} target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">
-                      {settings?.address || "M8RP+CCR, Kathmandu 44600"}
+                      {settings?.address || "New Baneshwor (Near Baneshwor Chowk), Kathmandu 44600"}
                     </a>
                   </p>
                 </div>

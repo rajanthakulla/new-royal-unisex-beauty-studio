@@ -7,15 +7,15 @@ interface ConciergeProps {
 
 export default function Concierge({ settings }: ConciergeProps) {
   return (
-    <aside className="fixed bottom-6 right-6 flex flex-col gap-3.5 z-50">
+    <aside className="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 flex sm:flex-col items-center gap-2.5 sm:gap-3.5 z-50">
       
       {/* 1. Book Appointment (Gold Gradient) */}
       <Link href="/book" title="Book Your Appointment" className="group relative flex items-center">
-        <span className="absolute right-16 bg-[#211a16] text-[#ede0d9] text-[11px] font-bold px-3 py-1.5 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none whitespace-nowrap shadow-md border border-white/10">
+        <span className="hidden sm:block absolute right-16 bg-[#211a16] text-[#ede0d9] text-[11px] font-bold px-3 py-1.5 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none whitespace-nowrap shadow-md border border-white/10">
           Book Appointment
         </span>
-        <button className="w-13 h-13 md:w-14 md:h-14 rounded-full gold-button flex items-center justify-center shadow-lg hover:scale-110 active:scale-95 transition-all duration-300">
-          <span className="material-symbols-outlined text-[24px]">event_available</span>
+        <button className="w-11 h-11 sm:w-13 sm:h-13 md:w-14 md:h-14 rounded-full gold-button flex items-center justify-center shadow-lg hover:scale-110 active:scale-95 transition-all duration-300">
+          <span className="material-symbols-outlined text-[20px] sm:text-[24px]">event_available</span>
         </button>
       </Link>
 
@@ -25,11 +25,11 @@ export default function Concierge({ settings }: ConciergeProps) {
         title="Call Now"
         className="group relative flex items-center"
       >
-        <span className="absolute right-16 bg-[#211a16] text-[#ede0d9] text-[11px] font-bold px-3 py-1.5 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none whitespace-nowrap shadow-md border border-white/10">
+        <span className="hidden sm:block absolute right-16 bg-[#211a16] text-[#ede0d9] text-[11px] font-bold px-3 py-1.5 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none whitespace-nowrap shadow-md border border-white/10">
           Call Salon Now
         </span>
-        <button className="w-13 h-13 md:w-14 md:h-14 rounded-full bg-[#211a16] text-[#ede0d9] flex items-center justify-center shadow-[0_4px_12px_rgba(33,26,22,0.3)] hover:scale-110 active:scale-95 transition-all duration-300 border border-primary/30">
-          <span className="material-symbols-outlined text-[24px]">call</span>
+        <button className="w-11 h-11 sm:w-13 sm:h-13 md:w-14 md:h-14 rounded-full bg-[#211a16] text-[#ede0d9] flex items-center justify-center shadow-[0_4px_12px_rgba(33,26,22,0.3)] hover:scale-110 active:scale-95 transition-all duration-300 border border-primary/30">
+          <span className="material-symbols-outlined text-[20px] sm:text-[24px]">call</span>
         </button>
       </a>
 
@@ -41,12 +41,12 @@ export default function Concierge({ settings }: ConciergeProps) {
         title="Book on WhatsApp"
         className="group relative flex items-center"
       >
-        <span className="absolute right-16 bg-[#211a16] text-[#ede0d9] text-[11px] font-bold px-3 py-1.5 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none whitespace-nowrap shadow-md border border-white/10">
+        <span className="hidden sm:block absolute right-16 bg-[#211a16] text-[#ede0d9] text-[11px] font-bold px-3 py-1.5 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none whitespace-nowrap shadow-md border border-white/10">
           Book on WhatsApp
         </span>
-        <button className="w-13 h-13 md:w-14 md:h-14 rounded-full bg-[#25D366] text-white flex items-center justify-center shadow-[0_4px_16px_rgba(37,211,102,0.4)] hover:scale-110 active:scale-95 transition-all duration-300 relative">
-          <span className="absolute -top-1 -right-1 w-3.5 h-3.5 bg-red-500 rounded-full border-2 border-white animate-pulse"></span>
-          <span className="material-symbols-outlined text-[26px]">chat</span>
+        <button className="w-11 h-11 sm:w-13 sm:h-13 md:w-14 md:h-14 rounded-full bg-[#25D366] text-white flex items-center justify-center shadow-[0_4px_16px_rgba(37,211,102,0.4)] hover:scale-110 active:scale-95 transition-all duration-300 relative">
+          <span className="absolute -top-1 -right-1 w-3 h-3 sm:w-3.5 sm:h-3.5 bg-red-500 rounded-full border-2 border-white animate-pulse"></span>
+          <span className="material-symbols-outlined text-[22px] sm:text-[26px]">chat</span>
         </button>
       </a>
 

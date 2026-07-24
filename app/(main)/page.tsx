@@ -133,7 +133,7 @@ export default async function Home() {
       tag: "Monsoon Special",
       title: "Monsoon Hair Hydration",
       description: "Bespoke hair spa treatment combined with an intensive anti-frizz mask and a luxury blow-dry.",
-      price: 49,
+      price: 4900,
       bookingLink: "/book",
       createdAt: new Date()
     },
@@ -142,13 +142,26 @@ export default async function Home() {
       tag: "Festival Glow",
       title: "Royal Facial & Dermal Radiance",
       description: "Our signature clinical hydra-facial coupled with a relaxing head massage and organic tan removal.",
-      price: 89,
+      price: 8900,
+      bookingLink: "/book",
+      createdAt: new Date()
+    },
+    {
+      id: "fsp3",
+      tag: "Bridal Special",
+      title: "Complete Queen Makeover",
+      description: "Professional high-definition bridal makeup trial, deluxe pedicure, and ultimate hair styling prep.",
+      price: 15000,
       bookingLink: "/book",
       createdAt: new Date()
     }
   ];
 
-  const specials = dbSpecials.length > 0 ? dbSpecials : fallbackSpecials;
+  const rawSpecials = dbSpecials.length > 0 ? dbSpecials : fallbackSpecials;
+  const specials = rawSpecials.map(special => ({
+    ...special,
+    price: special.price < 500 ? special.price * 100 : special.price
+  }));
 
   return (
     <HomePageClient 

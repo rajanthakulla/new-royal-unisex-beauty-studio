@@ -55,7 +55,7 @@ export default async function ContactPage() {
               <div className="flex items-center gap-3 text-on-surface-variant hover:text-primary transition-colors">
                 <span className="material-symbols-outlined text-[#745a32] text-[20px]">location_on</span>
                 <a href={settings?.googleMapsUrl || "https://maps.google.com/?q=M8RP%2BCCR,+Kathmandu+44600"} target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors text-[13px] font-bold">
-                  {settings?.address || "New Baneshwor, Kathmandu"}
+                  {settings?.address || "New Baneshwor (Near Baneshwor Chowk), Kathmandu"}
                 </a>
               </div>
               <div className="flex items-center gap-3 text-on-surface-variant hover:text-primary transition-colors">

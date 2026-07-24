@@ -167,7 +167,7 @@ export default function HomePageClient({ settings, services, testimonials, speci
           <ScrollReveal delay={0.2} className="flex flex-col items-center justify-center p-8 border-b md:border-b-0 md:border-r border-[#D4AF37]/15 hover:bg-[#FAF9F6] transition-colors group">
             <span className="material-symbols-outlined text-[#D4AF37] text-[32px] mb-1 group-hover:scale-110 transition-transform">favorite</span>
             <div className="font-headline-lg text-headline-lg font-bold text-on-surface">
-              <AnimatedNumber value={1000} suffix="+" />
+              <AnimatedNumber value={10000} suffix="+" />
             </div>
             <div className="font-label-md text-label-md text-on-surface-variant mt-1 font-medium">Happy Clients</div>
           </ScrollReveal>
@@ -175,7 +175,7 @@ export default function HomePageClient({ settings, services, testimonials, speci
           <ScrollReveal delay={0.3} className="flex flex-col items-center justify-center p-8 border-b md:border-b-0 md:border-r border-[#D4AF37]/15 hover:bg-[#FAF9F6] transition-colors group">
             <span className="material-symbols-outlined text-[#D4AF37] text-[32px] mb-1 group-hover:scale-110 transition-transform">workspace_premium</span>
             <div className="font-headline-lg text-headline-lg font-bold text-on-surface">
-              <AnimatedNumber value={10} suffix="+" />
+              <AnimatedNumber value={12} suffix="+" />
             </div>
             <div className="font-label-md text-label-md text-on-surface-variant mt-1 font-medium">Years Experience</div>
           </ScrollReveal>

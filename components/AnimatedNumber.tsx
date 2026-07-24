@@ -20,24 +20,29 @@ export default function AnimatedNumber({
 }: AnimatedNumberProps) {
   const ref = useRef<HTMLSpanElement>(null);
   const isInView = useInView(ref, { once: true, margin: "-50px" });
+  const [isStarted, setIsStarted] = useState(false);
   
-  // Use a spring for realistic counting motion, starting at 0
-  const springValue = useSpring(0, {
+  // Start spring with target value so SSR/initial render shows full value instead of 0
+  const springValue = useSpring(value, {
     stiffness: 50,
     damping: 20,
     duration: duration,
   });
 
-  // Transform the raw spring value to a whole formatted number string
   const displayValue = useTransform(springValue, (current) => {
     return Math.floor(current).toLocaleString();
   });
 
   useEffect(() => {
-    if (isInView) {
-      springValue.set(value);
+    if (isInView && !isStarted) {
+      setIsStarted(true);
+      springValue.set(0);
+      const timer = setTimeout(() => {
+        springValue.set(value);
+      }, 50);
+      return () => clearTimeout(timer);
     }
-  }, [isInView, value, springValue]);
+  }, [isInView, isStarted, value, springValue]);
 
   return (
     <span ref={ref} className={className}>
