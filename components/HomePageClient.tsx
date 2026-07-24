@@ -100,8 +100,8 @@ export default function HomePageClient({ settings, services, testimonials, speci
             </h1>
 
             {/* Refined Punchy Tagline */}
-            <p className="font-body-lg text-[14px] sm:text-[17px] md:text-[19px] text-[#4A4A4A] max-w-xl leading-relaxed font-normal">
-              Step into Kathmandu&apos;s most prestigious salon for couture hair styling, glowing organic skin rituals, and award-winning bridal makeovers.
+            <p className="font-body-lg text-[14px] sm:text-[17px] md:text-[19px] text-[#4A4A4A] max-w-2xl leading-relaxed font-normal">
+              Step into Kathmandu&apos;s most prestigious unisex beauty sanctuary for couture hair styling, glowing dermal skin rituals, and award-winning bridal makeovers. Experience world-class care delivered by certified master stylists using 100% organic, internationally accredited products in an opulent, tranquil environment.
             </p>
 
             {/* Primary & Secondary Action Group */}
