@@ -111,28 +111,6 @@ export default function HomePageClient({ settings, services, testimonials, speci
               </Link>
             </div>
 
-            {/* Integrated Direct WhatsApp & Phone Bar */}
-            <div className="pt-2 flex flex-wrap items-center gap-3">
-              <a 
-                href={`https://wa.me/${(settings?.whatsappNumber || "9779813451412").replace(/[^0-9]/g, "")}`}
-                target="_blank"
-                rel="noreferrer"
-                className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#25D366]/10 border border-[#25D366]/30 text-[#128C7E] hover:bg-[#25D366]/20 transition-colors text-[12.5px] font-bold"
-              >
-                <span className="w-2 h-2 rounded-full bg-[#25D366] animate-ping"></span>
-                <span className="material-symbols-outlined text-[16px] text-[#25D366]">chat</span>
-                Book on WhatsApp
-              </a>
-
-              <a 
-                href={`tel:${settings?.contactPhone || "+9779813451412"}`}
-                className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-black/5 border border-black/10 text-on-surface hover:bg-black/10 transition-colors text-[12.5px] font-medium"
-              >
-                <span className="material-symbols-outlined text-[16px] text-[#C5A059]">call</span>
-                Hotline: {settings?.contactPhone || "+977 981-3451412"}
-              </a>
-            </div>
-
             {/* Trust Badges */}
             <div className="pt-4 flex flex-wrap items-center gap-6 text-[13px] text-on-surface-variant font-medium border-t border-black/5 pt-5">
               <span className="flex items-center gap-1.5">
