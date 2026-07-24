@@ -473,31 +473,44 @@ export default function HomePageClient({ settings, services, testimonials, speci
                 itemTwo={<ReactCompareSliderImage src="/after_hair.jpg" alt="After" />}
               />
             </ScrollReveal>
-            <ScrollReveal delay={0.4} className="lg:col-span-4 space-y-8">
-              <div className="bg-white p-10 shadow-premium border border-primary-container/10">
-                <div className="inline-block bg-primary/10 text-primary px-3 py-1 text-xs font-bold uppercase tracking-widest mb-4">Stylist Report</div>
-                <h3 className="font-headline-lg text-headline-lg text-on-surface mb-4">Blonde Highlights & Restructure</h3>
-                <p className="text-on-surface-variant font-body-md mb-6 leading-relaxed">
+            <ScrollReveal delay={0.4} className="lg:col-span-4 space-y-6">
+              <div className="bg-white p-7 sm:p-8 rounded-3xl shadow-premium border border-primary-container/20 space-y-6">
+                <div>
+                  <div className="inline-block bg-[#D4AF37]/15 text-[#745a32] px-3.5 py-1 rounded-full text-[11px] font-bold uppercase tracking-widest mb-3">
+                    Stylist Report
+                  </div>
+                  <h3 className="font-headline-lg text-[22px] font-bold text-on-surface leading-snug">
+                    Blonde Highlights & Restructure
+                  </h3>
+                </div>
+
+                <p className="text-on-surface-variant font-body-md text-[14px] leading-relaxed">
                   Client had dry hair and frizz. We applied custom blonde highlights with keratin treatment. Results: shiny, healthy, soft hair.
                 </p>
-                <div className="space-y-4 border-t border-primary-container/10 pt-6">
-                  <div className="flex justify-between">
-                    <span className="text-on-surface-variant text-sm">Time Taken</span>
-                    <span className="font-semibold text-primary text-sm">120 Minutes</span>
+
+                <div className="space-y-3 border-t border-primary-container/15 pt-5 text-[13.5px]">
+                  <div className="flex justify-between items-center">
+                    <span className="text-on-surface-variant">Time Taken</span>
+                    <span className="font-semibold text-primary">120 Minutes</span>
                   </div>
-                  <div className="flex justify-between">
-                    <span className="text-on-surface-variant text-sm">Main Stylist</span>
-                    <span className="font-semibold text-primary text-sm">Hair Color Specialist</span>
+                  <div className="flex justify-between items-center">
+                    <span className="text-on-surface-variant">Main Stylist</span>
+                    <span className="font-semibold text-primary">Hair Color Specialist</span>
                   </div>
-                  <div className="flex justify-between">
-                    <span className="text-on-surface-variant text-sm">Products</span>
-                    <span className="font-semibold text-primary text-sm">Keratin & Premium Color</span>
+                  <div className="flex justify-between items-center">
+                    <span className="text-on-surface-variant">Products Used</span>
+                    <span className="font-semibold text-primary">Keratin & Premium Color</span>
                   </div>
                 </div>
-                <Link href={`https://wa.me/${(settings?.whatsappNumber || "9779813451412").replace(/[^0-9]/g, "")}`} target="_blank">
-                  <button className="w-full mt-8 py-4 gold-button font-label-md uppercase tracking-[0.12em] font-bold rounded-xl flex items-center justify-center gap-2">
+
+                <Link 
+                  href={`https://wa.me/${(settings?.whatsappNumber || "9779813451412").replace(/[^0-9]/g, "")}`} 
+                  target="_blank"
+                  className="block w-full pt-2"
+                >
+                  <button className="w-full py-3.5 px-5 gold-button rounded-full text-[12px] sm:text-[13px] font-bold uppercase tracking-[0.1em] flex items-center justify-center gap-2 shadow-md hover:scale-[1.02] active:scale-[0.98] transition-all">
                     <span className="material-symbols-outlined text-[18px]">chat</span>
-                    Book Similar Treatment on WhatsApp
+                    <span>Book Similar Treatment</span>
                   </button>
                 </Link>
               </div>
