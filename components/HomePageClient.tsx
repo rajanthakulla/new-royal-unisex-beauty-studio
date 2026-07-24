@@ -70,7 +70,7 @@ export default function HomePageClient({ settings, services, testimonials, speci
     <main className="pb-20">
 
       {/* Bespoke Luxury Hero Section */}
-      <section className="relative pt-24 sm:pt-32 pb-8 sm:pb-16 px-4 md:px-10 lg:px-12 w-[94%] max-w-[1440px] mx-auto overflow-hidden">
+      <section className="relative pt-36 sm:pt-36 pb-8 sm:pb-16 px-4 md:px-10 lg:px-12 w-[94%] max-w-[1440px] mx-auto overflow-hidden">
         {/* Soft Ambient Gold Radial Lighting Background */}
         <div className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-gradient-to-tr from-[#D4AF37]/20 via-[#F5E6AD]/25 to-transparent rounded-full blur-[140px] pointer-events-none"></div>
 
