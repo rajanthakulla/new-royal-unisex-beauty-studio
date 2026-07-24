@@ -307,8 +307,8 @@ export default function HomePageClient({ settings, services, testimonials, speci
           </ScrollReveal>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <ScrollReveal delay={0.15} className="bg-white p-8 rounded-3xl border border-[#d0c4bd]/20 shadow-sm flex flex-col justify-between group hover:border-[#745a32]/30 transition-all duration-300">
-              <div className="space-y-6">
+            <ScrollReveal delay={0.15} className="bg-white p-8 rounded-3xl border border-[#d0c4bd]/20 shadow-sm flex flex-col justify-between items-center text-center group hover:border-[#745a32]/30 transition-all duration-300">
+              <div className="space-y-4 flex flex-col items-center">
                 <span className="font-display-lg text-4xl text-[#745a32]/30 font-bold block transition-colors group-hover:text-[#745a32]">01</span>
                 <h3 className="font-display-lg text-xl font-bold text-on-surface">Precision Consultation</h3>
                 <p className="font-body-md text-[14px] text-on-surface-variant leading-relaxed">
@@ -317,8 +317,8 @@ export default function HomePageClient({ settings, services, testimonials, speci
               </div>
             </ScrollReveal>
 
-            <ScrollReveal delay={0.2} className="bg-white p-8 rounded-3xl border border-[#d0c4bd]/20 shadow-sm flex flex-col justify-between group hover:border-[#745a32]/30 transition-all duration-300">
-              <div className="space-y-6">
+            <ScrollReveal delay={0.2} className="bg-white p-8 rounded-3xl border border-[#d0c4bd]/20 shadow-sm flex flex-col justify-between items-center text-center group hover:border-[#745a32]/30 transition-all duration-300">
+              <div className="space-y-4 flex flex-col items-center">
                 <span className="font-display-lg text-4xl text-[#745a32]/30 font-bold block transition-colors group-hover:text-[#745a32]">02</span>
                 <h3 className="font-display-lg text-xl font-bold text-on-surface">The Treatment Ritual</h3>
                 <p className="font-body-md text-[14px] text-on-surface-variant leading-relaxed">
@@ -327,8 +327,8 @@ export default function HomePageClient({ settings, services, testimonials, speci
               </div>
             </ScrollReveal>
 
-            <ScrollReveal delay={0.25} className="bg-white p-8 rounded-3xl border border-[#d0c4bd]/20 shadow-sm flex flex-col justify-between group hover:border-[#745a32]/30 transition-all duration-300">
-              <div className="space-y-6">
+            <ScrollReveal delay={0.25} className="bg-white p-8 rounded-3xl border border-[#d0c4bd]/20 shadow-sm flex flex-col justify-between items-center text-center group hover:border-[#745a32]/30 transition-all duration-300">
+              <div className="space-y-4 flex flex-col items-center">
                 <span className="font-display-lg text-4xl text-[#745a32]/30 font-bold block transition-colors group-hover:text-[#745a32]">03</span>
                 <h3 className="font-display-lg text-xl font-bold text-on-surface">Aftercare Blueprint</h3>
                 <p className="font-body-md text-[14px] text-on-surface-variant leading-relaxed">
@@ -482,14 +482,14 @@ export default function HomePageClient({ settings, services, testimonials, speci
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {services.length > 0 ? services.map((service, idx) => (
-            <ScrollReveal key={idx} delay={0.1 * (idx % 3)} className="bg-white border border-transparent p-10 shadow-premium hover:shadow-premium-hover hover:-translate-y-2 transition-all duration-300 group">
-              <div className="w-12 h-12 bg-primary/10 text-primary flex items-center justify-center mb-6 group-hover:bg-primary group-hover:text-[#111111] transition-colors rounded-sm">
-                <span className="material-symbols-outlined">spa</span>
+            <ScrollReveal key={idx} delay={0.1 * (idx % 3)} className="bg-white border border-transparent p-8 sm:p-10 rounded-3xl shadow-premium hover:shadow-premium-hover hover:-translate-y-2 transition-all duration-300 group flex flex-col items-center text-center">
+              <div className="w-14 h-14 bg-primary/10 text-primary flex items-center justify-center mb-6 group-hover:bg-primary group-hover:text-[#111111] transition-colors rounded-2xl mx-auto">
+                <span className="material-symbols-outlined text-[28px]">spa</span>
               </div>
-              <span className="text-xs font-bold text-on-surface-variant uppercase tracking-wider block mb-2">{service.category?.name || "Service"}</span>
-              <h3 className="font-headline-md text-headline-md text-on-surface mb-3 group-hover:text-primary transition-colors">{service.title}</h3>
-              <p className="text-on-surface-variant font-body-md mb-6 line-clamp-3">{service.description}</p>
-              <Link href={`/services/${service.slug}`} className="font-label-md text-primary flex items-center gap-1 hover:text-black transition-colors group">
+              <span className="text-xs font-bold text-on-surface-variant uppercase tracking-wider block mb-2 text-center">{service.category?.name || "Service"}</span>
+              <h3 className="font-headline-md text-headline-md text-on-surface mb-3 group-hover:text-primary transition-colors text-center">{service.title}</h3>
+              <p className="text-on-surface-variant font-body-md mb-6 line-clamp-3 text-center leading-relaxed">{service.description}</p>
+              <Link href={`/services/${service.slug}`} className="font-label-md text-primary flex items-center justify-center gap-1 hover:text-black transition-colors group mt-auto">
                 Book Service <span className="material-symbols-outlined text-[16px] group-hover:translate-x-1 transition-transform">arrow_forward</span>
               </Link>
             </ScrollReveal>
@@ -529,9 +529,9 @@ export default function HomePageClient({ settings, services, testimonials, speci
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {specials.length > 0 ? (
               specials.map((special, idx) => (
-                <ScrollReveal key={special.id} delay={0.15 + (idx * 0.05)} className="bg-[#f8f3ee] p-8 rounded-3xl border border-[#d0c4bd]/40 flex flex-col justify-between hover:border-[#745a32]/40 transition-all duration-300 shadow-sm">
-                  <div className="space-y-6">
-                    <span className="text-[10px] font-label-md uppercase tracking-wider text-[#745a32] bg-[#fedaa8] px-3 py-1 rounded-full inline-block font-bold">
+                <ScrollReveal key={special.id} delay={0.15 + (idx * 0.05)} className="bg-[#f8f3ee] p-8 rounded-3xl border border-[#d0c4bd]/40 flex flex-col justify-between items-center text-center hover:border-[#745a32]/40 transition-all duration-300 shadow-sm">
+                  <div className="space-y-4 flex flex-col items-center">
+                    <span className="text-[10px] font-label-md uppercase tracking-wider text-[#745a32] bg-[#fedaa8] px-3.5 py-1 rounded-full inline-block font-bold">
                       {special.tag}
                     </span>
                     <h3 className="font-display-lg text-xl font-bold text-on-surface">{special.title}</h3>
@@ -539,10 +539,10 @@ export default function HomePageClient({ settings, services, testimonials, speci
                       {special.description}
                     </p>
                   </div>
-                  <div className="pt-8 border-t border-[#d0c4bd]/30 mt-8 flex justify-between items-center">
-                    <span className="font-display-lg text-lg font-bold text-on-surface">Rs. {special.price.toLocaleString()}</span>
-                    <Link href={special.bookingLink}>
-                      <button className="bg-black hover:bg-[#745a32] text-white px-5 py-2 rounded-full font-label-md text-[11px] uppercase tracking-widest transition-all duration-300">
+                  <div className="pt-6 border-t border-[#d0c4bd]/30 mt-6 flex flex-col items-center gap-3 w-full">
+                    <span className="font-display-lg text-xl font-bold text-on-surface">Rs. {special.price.toLocaleString()}</span>
+                    <Link href={special.bookingLink} className="w-full">
+                      <button className="w-full gold-button py-2.5 rounded-full font-label-md text-[11px] uppercase tracking-widest transition-all duration-300">
                         Book Package
                       </button>
                     </Link>
