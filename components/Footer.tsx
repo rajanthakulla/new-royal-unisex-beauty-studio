@@ -39,33 +39,33 @@ export default function Footer({ settings }: FooterProps) {
               Elevating elegance through intentional beauty and expert care in Kathmandu.
             </p>
             <div className="flex gap-3 pt-2">
-              {settings?.facebookUrl && (
-                <Link
-                  className="w-9 h-9 rounded-full bg-white/5 border border-white/10 flex items-center justify-center hover:bg-[#745a32] hover:text-white transition-all text-[#8c827c]"
-                  href={settings.facebookUrl}
-                  target="_blank"
-                >
-                  <span className="material-symbols-outlined text-[18px]">public</span>
-                </Link>
-              )}
-              {settings?.instagramUrl && (
-                <Link
-                  className="w-9 h-9 rounded-full bg-white/5 border border-white/10 flex items-center justify-center hover:bg-[#745a32] hover:text-white transition-all text-[#8c827c]"
-                  href={settings.instagramUrl}
-                  target="_blank"
-                >
-                  <span className="material-symbols-outlined text-[18px]">photo_camera</span>
-                </Link>
-              )}
-              {settings?.tiktokUrl && (
-                <Link
-                  className="w-9 h-9 rounded-full bg-white/5 border border-white/10 flex items-center justify-center hover:bg-[#745a32] hover:text-white transition-all text-[#8c827c]"
-                  href={settings.tiktokUrl}
-                  target="_blank"
-                >
-                  <span className="material-symbols-outlined text-[18px]">movie</span>
-                </Link>
-              )}
+              <a
+                className="w-9 h-9 rounded-full bg-white/5 border border-white/10 flex items-center justify-center hover:bg-[#745a32] hover:text-white transition-all text-[#8c827c]"
+                href={settings?.facebookUrl || "https://www.facebook.com/NewRoyalBeautysalon12345/"}
+                target="_blank"
+                rel="noreferrer"
+                title="Facebook"
+              >
+                <span className="material-symbols-outlined text-[18px]">public</span>
+              </a>
+              <a
+                className="w-9 h-9 rounded-full bg-white/5 border border-white/10 flex items-center justify-center hover:bg-[#745a32] hover:text-white transition-all text-[#8c827c]"
+                href={settings?.instagramUrl || "https://www.instagram.com/nrbs_official/"}
+                target="_blank"
+                rel="noreferrer"
+                title="Instagram"
+              >
+                <span className="material-symbols-outlined text-[18px]">photo_camera</span>
+              </a>
+              <a
+                className="w-9 h-9 rounded-full bg-white/5 border border-white/10 flex items-center justify-center hover:bg-[#745a32] hover:text-white transition-all text-[#8c827c]"
+                href={settings?.tiktokUrl || "https://www.tiktok.com/@newroyalbeautysalon"}
+                target="_blank"
+                rel="noreferrer"
+                title="TikTok"
+              >
+                <span className="material-symbols-outlined text-[18px]">movie</span>
+              </a>
             </div>
           </div>
 

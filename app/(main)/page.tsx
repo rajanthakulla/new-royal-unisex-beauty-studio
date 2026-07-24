@@ -25,9 +25,9 @@ export default async function Home() {
       address: "M8RP+CCR, Kathmandu 44600",
       googleMapsUrl: "https://maps.google.com/?q=M8RP%2BCCR,+Kathmandu+44600",
       businessHours: "Everyday 9:00 AM - 8:00 PM",
-      facebookUrl: null,
-      instagramUrl: null,
-      tiktokUrl: null,
+      facebookUrl: "https://www.facebook.com/NewRoyalBeautysalon12345/",
+      instagramUrl: "https://www.instagram.com/nrbs_official/",
+      tiktokUrl: "https://www.tiktok.com/@newroyalbeautysalon",
       updatedAt: new Date(),
     } as any;
   }

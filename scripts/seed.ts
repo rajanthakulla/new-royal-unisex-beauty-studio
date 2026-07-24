@@ -31,9 +31,12 @@ async function main() {
         heroDescription: "Professional hair, beauty, and makeup services...",
         contactPhone: "+977 981-3451412",
         whatsappNumber: "9779813451412",
-        address: "M8RP+CCR, Kathmandu 44600",
+        address: "New Baneshwor (Near Baneshwor Chowk), Kathmandu 44600",
         googleMapsUrl: "https://maps.google.com/?q=M8RP%2BCCR,+Kathmandu+44600",
         businessHours: "Everyday 9:00 AM - 8:00 PM",
+        facebookUrl: "https://www.facebook.com/NewRoyalBeautysalon12345/",
+        instagramUrl: "https://www.instagram.com/nrbs_official/",
+        tiktokUrl: "https://www.tiktok.com/@newroyalbeautysalon",
       },
     });
     console.log("Default site settings created!", settings);
