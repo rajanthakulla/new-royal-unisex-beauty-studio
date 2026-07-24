@@ -21,6 +21,24 @@ interface HomePageClientProps {
 export default function HomePageClient({ settings, services, testimonials, specials = [] }: HomePageClientProps) {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [itemsPerView, setItemsPerView] = useState(3);
+  
+  // Hero Slideshow state & configuration
+  const heroSlides = [
+    { src: "/gallery/hero-main.png", alt: "New Royal Model Transformation" },
+    { src: "/gallery/salon-1.webp", alt: "Luxury Salon Interior" },
+    { src: "/gallery/salon-2.webp", alt: "Bridal Makeup Studio" },
+    { src: "/gallery/salon-3.webp", alt: "Hair Care & Hair Spa" },
+    { src: "/gallery/salon-4.webp", alt: "Organic Skin Care Ritual" },
+  ];
+
+  const [currentSlide, setCurrentSlide] = useState(0);
+
+  useEffect(() => {
+    const slideTimer = setInterval(() => {
+      setCurrentSlide((prev) => (prev + 1) % heroSlides.length);
+    }, 4500);
+    return () => clearInterval(slideTimer);
+  }, [heroSlides.length]);
 
   useEffect(() => {
     const handleResize = () => {
@@ -52,11 +70,11 @@ export default function HomePageClient({ settings, services, testimonials, speci
     <main className="pb-20">
 
       {/* Bespoke Luxury Hero Section */}
-      <section className="relative pt-32 pb-16 px-6 md:px-16 lg:px-20 max-w-7xl mx-auto overflow-hidden">
+      <section className="relative pt-32 pb-16 px-4 md:px-10 lg:px-12 w-[94%] max-w-[1440px] mx-auto overflow-hidden">
         {/* Soft Ambient Gold Radial Lighting Background */}
-        <div className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] bg-gradient-to-tr from-[#D4AF37]/20 via-[#F5E6AD]/25 to-transparent rounded-full blur-[120px] pointer-events-none"></div>
+        <div className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-gradient-to-tr from-[#D4AF37]/20 via-[#F5E6AD]/25 to-transparent rounded-full blur-[140px] pointer-events-none"></div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-14 items-center relative z-10">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center relative z-10">
           
           {/* Left: High-Fashion Luxury Text & Integrated CTAs */}
           <motion.div
@@ -129,23 +147,77 @@ export default function HomePageClient({ settings, services, testimonials, speci
             </div>
           </motion.div>
 
-          {/* Right: Masterpiece Editorial Media Canvas */}
+          {/* Right: Masterpiece Editorial Media Canvas (Dynamic Slideshow) */}
           <motion.div 
             className="lg:col-span-5 relative"
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
           >
-            {/* Main Visual Frame - Clean & Unobscured */}
-            <div className="relative h-[500px] sm:h-[560px] w-full rounded-[2.5rem] overflow-hidden shadow-2xl border-4 border-white glass-card-luxury group">
-              <Image 
-                src="/gallery/hero-main.png"
-                alt="New Royal Beauty Studio Model"
-                fill
-                className="object-cover object-top group-hover:scale-105 transition-transform duration-700"
-                priority
-                sizes="(max-width: 1024px) 100vw, 45vw"
-              />
+            {/* Main Visual Frame - Interactive Slideshow */}
+            <div className="relative h-[520px] sm:h-[580px] lg:h-[620px] w-full rounded-[2.5rem] overflow-hidden shadow-2xl border-4 border-white glass-card-luxury group">
+              {heroSlides.map((slide, idx) => (
+                <motion.div
+                  key={slide.src}
+                  initial={false}
+                  animate={{ 
+                    opacity: idx === currentSlide ? 1 : 0,
+                    scale: idx === currentSlide ? 1 : 1.06,
+                    zIndex: idx === currentSlide ? 10 : 0
+                  }}
+                  transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1] }}
+                  className="absolute inset-0 w-full h-full"
+                >
+                  <Image 
+                    src={slide.src}
+                    alt={slide.alt}
+                    fill
+                    className="object-cover object-top"
+                    priority={idx === 0}
+                    sizes="(max-width: 1024px) 100vw, 45vw"
+                  />
+                </motion.div>
+              ))}
+
+              {/* Bottom Gradient overlay for slide controls */}
+              <div className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-black/60 via-black/20 to-transparent z-20 pointer-events-none"></div>
+
+              {/* Slideshow Controls Bar */}
+              <div className="absolute bottom-5 inset-x-0 flex items-center justify-between px-6 z-30">
+                {/* Gold Active Indicator Pills */}
+                <div className="flex items-center gap-2 bg-black/40 backdrop-blur-md px-3.5 py-1.5 rounded-full border border-white/20">
+                  {heroSlides.map((_, idx) => (
+                    <button
+                      key={idx}
+                      onClick={() => setCurrentSlide(idx)}
+                      aria-label={`Go to slide ${idx + 1}`}
+                      className={`h-2 rounded-full transition-all duration-500 ${
+                        idx === currentSlide 
+                          ? "w-6 bg-[#D4AF37]" 
+                          : "w-2 bg-white/50 hover:bg-white"
+                      }`}
+                    />
+                  ))}
+                </div>
+
+                {/* Left/Right Arrow Navigation */}
+                <div className="flex items-center gap-1.5 bg-black/40 backdrop-blur-md p-1 rounded-full border border-white/20">
+                  <button
+                    onClick={() => setCurrentSlide((prev) => (prev - 1 + heroSlides.length) % heroSlides.length)}
+                    className="w-7 h-7 rounded-full flex items-center justify-center text-white hover:bg-white/20 transition-colors"
+                    aria-label="Previous slide"
+                  >
+                    <span className="material-symbols-outlined text-[18px]">chevron_left</span>
+                  </button>
+                  <button
+                    onClick={() => setCurrentSlide((prev) => (prev + 1) % heroSlides.length)}
+                    className="w-7 h-7 rounded-full flex items-center justify-center text-white hover:bg-white/20 transition-colors"
+                    aria-label="Next slide"
+                  >
+                    <span className="material-symbols-outlined text-[18px]">chevron_right</span>
+                  </button>
+                </div>
+              </div>
             </div>
 
           </motion.div>
