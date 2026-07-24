@@ -92,10 +92,10 @@ export default function HomePageClient({ settings, services, testimonials, speci
                 <motion.button 
                   whileHover={{ scale: 1.03 }} 
                   whileTap={{ scale: 0.97 }}
-                  className="w-full sm:w-[230px] h-[52px] gold-button rounded-full font-label-md text-[12px] uppercase tracking-[0.12em] font-bold shadow-xl flex items-center justify-center gap-2.5"
+                  className="w-full sm:w-[245px] h-[52px] gold-button rounded-full font-label-md text-[12px] uppercase tracking-[0.08em] font-bold shadow-xl flex items-center justify-center gap-2"
                 >
                   <span className="material-symbols-outlined text-[19px]">calendar_month</span>
-                  <span>Book Appointment</span>
+                  <span className="whitespace-nowrap">Book Appointment</span>
                 </motion.button>
               </Link>
 
@@ -103,11 +103,11 @@ export default function HomePageClient({ settings, services, testimonials, speci
                 <motion.button 
                   whileHover={{ scale: 1.03 }} 
                   whileTap={{ scale: 0.97 }}
-                  className="w-full sm:w-[230px] h-[52px] bg-white/90 border-2 border-[#D4AF37]/70 text-[#211a16] hover:bg-[#D4AF37]/10 rounded-full font-label-md text-[12px] uppercase tracking-[0.12em] font-bold transition-all shadow-sm flex items-center justify-center gap-2 group"
+                  className="w-full sm:w-[245px] h-[52px] bg-white/90 border-2 border-[#D4AF37]/70 text-[#211a16] hover:bg-[#D4AF37]/10 rounded-full font-label-md text-[12px] uppercase tracking-[0.08em] font-bold transition-all shadow-sm flex items-center justify-center gap-2 group"
                 >
                   <span className="material-symbols-outlined text-[19px] text-[#D4AF37] group-hover:rotate-12 transition-transform">local_offer</span>
-                  <span>Explore Offers</span>
-                  <span className="text-[9px] bg-red-500 text-white px-2 py-0.5 rounded-full font-bold uppercase tracking-wider animate-pulse">Special</span>
+                  <span className="whitespace-nowrap">Explore Offers</span>
+                  <span className="text-[9px] bg-red-500 text-white px-2 py-0.5 rounded-full font-bold uppercase tracking-wider animate-pulse shrink-0">Special</span>
                 </motion.button>
               </Link>
             </div>
