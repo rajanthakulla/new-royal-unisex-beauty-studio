@@ -9,6 +9,7 @@ import Marquee from "react-fast-marquee";
 import { ReactCompareSlider, ReactCompareSliderImage } from "react-compare-slider";
 import { SiteSettings, Service, Testimonial, Category, SeasonalSpecial } from "@prisma/client";
 import AnimatedNumber from "@/components/AnimatedNumber";
+import FAQAccordions from "@/components/FAQAccordions";
 
 interface HomePageClientProps {
   settings: SiteSettings;
@@ -716,6 +717,73 @@ export default function HomePageClient({ settings, services, testimonials, speci
             </div>
           </div>
         </ScrollReveal>
+      </section>
+
+      {/* 10. Frequently Asked Questions (Below Map) */}
+      <section className="py-24 bg-[#FAF9F6] border-t border-[#D4AF37]/20">
+        <div className="w-[92%] max-w-[1100px] mx-auto px-4 md:px-12">
+          <ScrollReveal delay={0.1} className="text-center mb-16 space-y-3">
+            <span className="text-[12px] font-label-md uppercase tracking-[0.2em] text-[#745a32] block font-bold">
+              GOT QUESTIONS? WE HAVE ANSWERS
+            </span>
+            <h2 className="font-display-lg text-[34px] md:text-[44px] text-on-surface font-semibold">
+              Frequently Asked Questions
+            </h2>
+            <p className="font-body-lg text-[16px] text-on-surface-variant max-w-xl mx-auto leading-relaxed">
+              Everything you need to know about our luxury hair care, skin rituals, and booking process at New Royal Beauty Studio.
+            </p>
+          </ScrollReveal>
+
+          <ScrollReveal delay={0.2}>
+            <FAQAccordions 
+              sections={[
+                {
+                  title: "SALON SERVICES & PRODUCTS",
+                  items: [
+                    {
+                      question: "What beauty & hair services do you offer?",
+                      answer: "We offer comprehensive luxury salon treatments including precision hair cuts & styling, advanced hair coloring, Keratin & Smoothening restructuring, organic facial rituals, hair spa, nail art, and award-winning HD bridal makeovers."
+                    },
+                    {
+                      question: "What brands of products do you use?",
+                      answer: "We exclusively use premium, non-toxic products imported from world-leading beauty brands such as L'Oréal Professional, Wella Professionals, Schwarzkopf, Olaplex, Dyson, and MAC Cosmetics."
+                    },
+                    {
+                      question: "Do you offer unisex beauty services?",
+                      answer: "Yes! New Royal Beauty & Unisex Salon provides specialized grooming, hair care, skin treatments, and styling for both women and men in a fully sanitized sanctuary."
+                    }
+                  ]
+                },
+                {
+                  title: "BOOKINGS & LOCATION",
+                  items: [
+                    {
+                      question: "Where is New Royal Beauty Studio located in Kathmandu?",
+                      answer: "We are located in New Baneshwor, Kathmandu (M8RP+CCR). We are conveniently accessible with parking facilities for private vehicles."
+                    },
+                    {
+                      question: "Do I need to book an appointment in advance?",
+                      answer: "While we accept walk-ins based on availability, booking in advance via WhatsApp or our website is recommended to guarantee your preferred time slot and master stylist."
+                    },
+                    {
+                      question: "What are your business opening hours?",
+                      answer: "We are open 7 days a week, Monday through Sunday, from 9:00 AM to 8:00 PM."
+                    }
+                  ]
+                }
+              ]}
+            />
+          </ScrollReveal>
+
+          <div className="mt-12 text-center">
+            <p className="text-[14px] text-on-surface-variant mb-4 font-body-md">Have a question that isn&apos;t answered here?</p>
+            <Link href="/contact">
+              <button className="gold-button px-8 py-3.5 rounded-full font-label-md text-[12px] uppercase tracking-widest font-bold shadow-md">
+                Contact Our Support Team
+              </button>
+            </Link>
+          </div>
+        </div>
       </section>
     </main>
   );
