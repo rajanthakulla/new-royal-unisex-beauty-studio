@@ -250,48 +250,44 @@ export default function HomePageClient({ settings, services, testimonials, speci
       </section>
 
       {/* 3.2 Premium Brand Partners Showcase */}
-      <section className="py-12 px-4 bg-[#FAF9F6]">
-        <div className="w-[88%] max-w-[1100px] mx-auto bg-[#211a16] text-[#ede0d9] py-12 px-4 md:px-8 rounded-3xl md:rounded-[2.5rem] shadow-2xl border border-[#D4AF37]/30 relative overflow-hidden">
-          
-          <div className="text-center mb-8">
-            <span className="text-[11px] font-label-md uppercase tracking-[0.22em] text-[#D4AF37] block font-bold mb-1">
-              WORLD-CLASS EXCELLENCE
-            </span>
-            <h3 className="font-display-lg text-[24px] md:text-[28px] font-semibold text-white">
-              Premium Brands We Work With
-            </h3>
-          </div>
+      <section className="py-14 bg-[#211a16] text-[#ede0d9] relative overflow-hidden border-y border-white/10">
+        <div className="w-[92%] max-w-container-max mx-auto text-center mb-8">
+          <span className="text-[11px] font-label-md uppercase tracking-[0.22em] text-[#D4AF37] block font-bold mb-1">
+            WORLD-CLASS EXCELLENCE
+          </span>
+          <h3 className="font-display-lg text-[24px] md:text-[30px] font-semibold text-white">
+            Premium Brands We Work With
+          </h3>
+        </div>
 
-          {/* Marquee Container with Blur Vanishing Effect on Left and Right */}
-          <div className="relative w-full overflow-hidden [mask-image:linear-gradient(to_right,transparent_0%,black_18%,black_82%,transparent_100%)] [-webkit-mask-image:linear-gradient(to_right,transparent_0%,black_18%,black_82%,transparent_100%)]">
-            {/* Left & Right Fade & Blur Overlays */}
-            <div className="absolute top-0 bottom-0 left-0 w-24 sm:w-40 bg-gradient-to-r from-[#211a16] via-[#211a16]/90 to-transparent z-10 pointer-events-none backdrop-blur-[3px]"></div>
-            <div className="absolute top-0 bottom-0 right-0 w-24 sm:w-40 bg-gradient-to-l from-[#211a16] via-[#211a16]/90 to-transparent z-10 pointer-events-none backdrop-blur-[3px]"></div>
+        {/* Marquee Container with Subtle Edge Blur Vanishing Effect */}
+        <div className="relative w-full overflow-hidden [mask-image:linear-gradient(to_right,transparent_0%,black_6%,black_94%,transparent_100%)] [-webkit-mask-image:linear-gradient(to_right,transparent_0%,black_6%,black_94%,transparent_100%)]">
+          {/* Left & Right Fade Overlays */}
+          <div className="absolute top-0 bottom-0 left-0 w-16 sm:w-28 bg-gradient-to-r from-[#211a16] to-transparent z-10 pointer-events-none"></div>
+          <div className="absolute top-0 bottom-0 right-0 w-16 sm:w-28 bg-gradient-to-l from-[#211a16] to-transparent z-10 pointer-events-none"></div>
 
-            <Marquee speed={35} pauseOnHover gradient={false}>
-              {[
-                { name: "L'Oréal Professional", origin: "Paris", tag: "Hair Care & Color" },
-                { name: "Wella Professionals", origin: "Germany", tag: "Keratin & Shine" },
-                { name: "Schwarzkopf Professional", origin: "Germany", tag: "Couture Styling" },
-                { name: "Olaplex", origin: "California", tag: "Bond Building Treatment" },
-                { name: "Dyson Beauty", origin: "UK", tag: "Precision Styling Tools" },
-                { name: "MAC Cosmetics", origin: "USA", tag: "HD Bridal Makeover" },
-              ].map((brand, idx) => (
-                <div 
-                  key={idx} 
-                  className="mx-3.5 px-7 py-4.5 rounded-2xl bg-white/5 border border-white/10 hover:border-[#D4AF37]/60 hover:bg-white/10 transition-all duration-300 flex flex-col items-center justify-center shrink-0 min-w-[210px]"
-                >
-                  <span className="font-display-lg text-lg font-bold text-white tracking-wide">{brand.name}</span>
-                  <div className="flex items-center gap-2 mt-1 text-[11px] text-[#D4AF37]">
-                    <span>{brand.tag}</span>
-                    <span className="opacity-40">•</span>
-                    <span className="text-white/60">{brand.origin}</span>
-                  </div>
+          <Marquee speed={35} pauseOnHover gradient={false}>
+            {[
+              { name: "L'Oréal Professional", origin: "Paris", tag: "Hair Care & Color" },
+              { name: "Wella Professionals", origin: "Germany", tag: "Keratin & Shine" },
+              { name: "Schwarzkopf Professional", origin: "Germany", tag: "Couture Styling" },
+              { name: "Olaplex", origin: "California", tag: "Bond Building Treatment" },
+              { name: "Dyson Beauty", origin: "UK", tag: "Precision Styling Tools" },
+              { name: "MAC Cosmetics", origin: "USA", tag: "HD Bridal Makeover" },
+            ].map((brand, idx) => (
+              <div 
+                key={idx} 
+                className="mx-4 px-8 py-5 rounded-2xl bg-white/5 border border-white/10 hover:border-[#D4AF37]/60 hover:bg-white/10 transition-all duration-300 flex flex-col items-center justify-center shrink-0 min-w-[220px]"
+              >
+                <span className="font-display-lg text-lg font-bold text-white tracking-wide">{brand.name}</span>
+                <div className="flex items-center gap-2 mt-1 text-[11px] text-[#D4AF37]">
+                  <span>{brand.tag}</span>
+                  <span className="opacity-40">•</span>
+                  <span className="text-white/60">{brand.origin}</span>
                 </div>
-              ))}
-            </Marquee>
-          </div>
-
+              </div>
+            ))}
+          </Marquee>
         </div>
       </section>
 
@@ -345,43 +341,39 @@ export default function HomePageClient({ settings, services, testimonials, speci
       </section>
 
       {/* 4. Salon Vibes Marquee */}
-      <section className="py-12 px-4 bg-[#FAF9F6]">
-        <div className="w-[88%] max-w-[1100px] mx-auto bg-white py-12 px-4 md:px-8 rounded-3xl md:rounded-[2.5rem] shadow-premium border border-primary-container/20 relative overflow-hidden">
-          
-          <ScrollReveal delay={0.1} className="text-center mb-8">
-            <span className="text-[11px] font-label-md uppercase tracking-[0.22em] text-[#745a32] block font-bold mb-1">
-              INSIDE OUR SANCTUARY
-            </span>
-            <h2 className="font-display-lg text-[24px] md:text-[28px] font-semibold text-on-surface">Salon Vibes</h2>
-          </ScrollReveal>
+      <section className="py-16 bg-[#FAF9F6] border-y border-black/5 relative overflow-hidden">
+        <ScrollReveal delay={0.1} className="text-center mb-10">
+          <span className="text-[11px] font-label-md uppercase tracking-[0.22em] text-[#745a32] block font-bold mb-1">
+            INSIDE OUR SANCTUARY
+          </span>
+          <h2 className="font-display-lg text-[26px] md:text-[32px] font-semibold text-on-surface">Salon Vibes</h2>
+        </ScrollReveal>
 
-          {/* Marquee Container with Blur Vanishing Effect on Left and Right */}
-          <div className="relative w-full overflow-hidden [mask-image:linear-gradient(to_right,transparent_0%,black_18%,black_82%,transparent_100%)] [-webkit-mask-image:linear-gradient(to_right,transparent_0%,black_18%,black_82%,transparent_100%)]">
-            {/* Left & Right Fade & Blur Overlays */}
-            <div className="absolute top-0 bottom-0 left-0 w-24 sm:w-40 bg-gradient-to-r from-white via-white/90 to-transparent z-10 pointer-events-none backdrop-blur-[3px]"></div>
-            <div className="absolute top-0 bottom-0 right-0 w-24 sm:w-40 bg-gradient-to-l from-white via-white/90 to-transparent z-10 pointer-events-none backdrop-blur-[3px]"></div>
+        {/* Marquee Container with Subtle Edge Blur Vanishing Effect */}
+        <div className="relative w-full overflow-hidden [mask-image:linear-gradient(to_right,transparent_0%,black_6%,black_94%,transparent_100%)] [-webkit-mask-image:linear-gradient(to_right,transparent_0%,black_6%,black_94%,transparent_100%)]">
+          {/* Left & Right Fade Overlays */}
+          <div className="absolute top-0 bottom-0 left-0 w-16 sm:w-28 bg-gradient-to-r from-[#FAF9F6] to-transparent z-10 pointer-events-none"></div>
+          <div className="absolute top-0 bottom-0 right-0 w-16 sm:w-28 bg-gradient-to-l from-[#FAF9F6] to-transparent z-10 pointer-events-none"></div>
 
-            <Marquee speed={30} pauseOnHover gradient={false}>
-              {[
-                "/gallery/salon-2.webp",
-                "/gallery/salon-3.webp",
-                "/gallery/salon-4.webp",
-                "/gallery/salon-5.webp",
-                "/gallery/salon-6.webp"
-              ].map((src, idx) => (
-                <div key={idx} className="mx-3.5 relative w-60 h-72 rounded-2xl overflow-hidden group shadow-md border border-black/5 shrink-0">
-                  <Image 
-                    src={src} 
-                    alt="Salon Vibe" 
-                    fill 
-                    className="object-cover group-hover:scale-108 transition-transform duration-700" 
-                    sizes="240px"
-                  />
-                </div>
-              ))}
-            </Marquee>
-          </div>
-
+          <Marquee speed={30} pauseOnHover gradient={false}>
+            {[
+              "/gallery/salon-2.webp",
+              "/gallery/salon-3.webp",
+              "/gallery/salon-4.webp",
+              "/gallery/salon-5.webp",
+              "/gallery/salon-6.webp"
+            ].map((src, idx) => (
+              <div key={idx} className="mx-4 relative w-64 h-80 rounded-2xl overflow-hidden group shadow-md border border-black/5 shrink-0">
+                <Image 
+                  src={src} 
+                  alt="Salon Vibe" 
+                  fill 
+                  className="object-cover group-hover:scale-108 transition-transform duration-700" 
+                  sizes="256px"
+                />
+              </div>
+            ))}
+          </Marquee>
         </div>
       </section>
 
