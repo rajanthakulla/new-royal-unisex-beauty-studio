@@ -50,152 +50,172 @@ export default function HomePageClient({ settings, services, testimonials, speci
   return (
     <main className="pb-20">
 
-      {/* Hero Section */}
-      <section className="relative pt-32 pb-20 px-6 md:px-16 lg:px-20 max-w-7xl mx-auto overflow-hidden">
-        {/* Subtle Warm Background Glow */}
-        <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gradient-to-tr from-[#D4AF37]/15 via-[#F5E6AD]/20 to-transparent rounded-full blur-3xl pointer-events-none"></div>
+      {/* Bespoke Luxury Hero Section */}
+      <section className="relative pt-32 pb-16 px-6 md:px-16 lg:px-20 max-w-7xl mx-auto overflow-hidden">
+        {/* Soft Ambient Gold Radial Lighting Background */}
+        <div className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] bg-gradient-to-tr from-[#D4AF37]/20 via-[#F5E6AD]/25 to-transparent rounded-full blur-[120px] pointer-events-none"></div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-12 items-center relative z-10">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-14 items-center relative z-10">
           
-          {/* Left: Punchy Text Content & Strong CTAs */}
+          {/* Left: High-Fashion Luxury Text & Integrated CTAs */}
           <motion.div
             className="lg:col-span-7 space-y-6 text-left"
-            initial={{ opacity: 0, y: 25 }}
+            initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+            transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
           >
-            <div className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-white/80 border border-[#D4AF37]/40 shadow-sm backdrop-blur-md">
-              <span className="w-2 h-2 rounded-full bg-[#D4AF37] animate-ping"></span>
-              <span className="font-label-md text-[11px] md:text-[12px] uppercase tracking-[0.16em] font-bold text-[#745a32]">
-                Kathmandu&apos;s Luxury Beauty Sanctuary
+            {/* Luxury Eyebrow Pill */}
+            <div className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-white/90 border border-[#D4AF37]/40 shadow-sm backdrop-blur-md">
+              <span className="w-2 h-2 rounded-full bg-[#D4AF37] animate-pulse"></span>
+              <span className="font-label-md text-[11px] md:text-[12.5px] uppercase tracking-[0.2em] font-bold text-[#745a32]">
+                Kathmandu&apos;s Premier Luxury Beauty Sanctuary
               </span>
             </div>
 
-            <h1 className="font-display-lg text-[44px] sm:text-[56px] md:text-[68px] lg:text-[72px] text-on-surface leading-[1.05] tracking-tight font-semibold">
-              Unveil Your <br/>
-              <span className="gold-gradient-text italic font-serif font-normal">True Radiance</span>
+            {/* Editorial Serif Display Headline */}
+            <h1 className="font-display-lg text-[44px] sm:text-[60px] lg:text-[72px] text-[#1c1815] leading-[1.04] tracking-tight font-semibold">
+              Redefine Your Beauty. <br />
+              <span className="gold-gradient-text italic font-serif font-normal">
+                Unveil Royal Radiance.
+              </span>
             </h1>
 
-            {/* Short, punchy tagline replacing long paragraphs */}
-            <p className="font-body-lg text-[17px] md:text-[19px] text-on-surface-variant max-w-xl leading-relaxed font-normal">
-              Kathmandu&apos;s premier salon for couture hair styling, organic skin rituals & award-winning bridal perfection.
+            {/* Refined Punchy Tagline */}
+            <p className="font-body-lg text-[17px] md:text-[19px] text-[#4A4A4A] max-w-xl leading-relaxed font-normal">
+              Step into Kathmandu&apos;s most prestigious salon for couture hair styling, glowing organic skin rituals, and award-winning bridal makeovers.
             </p>
 
-            {/* Strong CTAs */}
-            <div className="pt-2 flex flex-wrap items-center gap-4">
+            {/* Primary & Secondary Action Group */}
+            <div className="pt-3 flex flex-wrap items-center gap-4">
               <Link href="/book">
                 <motion.button 
-                  whileHover={{ scale: 1.04 }} 
-                  whileTap={{ scale: 0.96 }}
-                  className="gold-button px-8 py-4 rounded-full font-label-md text-[12px] uppercase tracking-[0.12em] font-bold shadow-lg flex items-center gap-2"
+                  whileHover={{ scale: 1.03 }} 
+                  whileTap={{ scale: 0.97 }}
+                  className="gold-button px-8 py-4 rounded-full font-label-md text-[12px] uppercase tracking-[0.14em] font-bold shadow-xl flex items-center gap-2.5"
                 >
-                  <span className="material-symbols-outlined text-[18px]">calendar_month</span>
-                  Book Your Appointment
+                  <span className="material-symbols-outlined text-[19px]">calendar_month</span>
+                  Book Appointment
                 </motion.button>
               </Link>
 
               <Link href="/offers">
                 <motion.button 
-                  whileHover={{ scale: 1.04 }} 
-                  whileTap={{ scale: 0.96 }}
-                  className="bg-white/90 border-2 border-[#D4AF37] text-on-surface hover:bg-[#D4AF37]/10 px-7 py-3.5 rounded-full font-label-md text-[12px] uppercase tracking-[0.12em] font-bold transition-all shadow-sm flex items-center gap-2 group"
+                  whileHover={{ scale: 1.03 }} 
+                  whileTap={{ scale: 0.97 }}
+                  className="bg-white/90 border-2 border-[#D4AF37]/70 text-[#211a16] hover:bg-[#D4AF37]/10 px-7 py-3.5 rounded-full font-label-md text-[12px] uppercase tracking-[0.14em] font-bold transition-all shadow-sm flex items-center gap-2 group"
                 >
-                  <span className="material-symbols-outlined text-[18px] text-[#D4AF37] group-hover:rotate-12 transition-transform">local_offer</span>
-                  Claim Sawan Offer
-                  <span className="text-[9px] bg-red-500 text-white px-2 py-0.5 rounded-full font-bold uppercase animate-pulse">Special</span>
+                  <span className="material-symbols-outlined text-[19px] text-[#D4AF37] group-hover:rotate-12 transition-transform">local_offer</span>
+                  Explore Offers
+                  <span className="text-[9px] bg-red-500 text-white px-2 py-0.5 rounded-full font-bold uppercase tracking-wider animate-pulse">Special</span>
                 </motion.button>
               </Link>
+            </div>
 
+            {/* Integrated Direct WhatsApp & Phone Bar */}
+            <div className="pt-2 flex flex-wrap items-center gap-3">
               <a 
                 href={`https://wa.me/${(settings?.whatsappNumber || "9779813451412").replace(/[^0-9]/g, "")}`}
                 target="_blank"
                 rel="noreferrer"
+                className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#25D366]/10 border border-[#25D366]/30 text-[#128C7E] hover:bg-[#25D366]/20 transition-colors text-[12.5px] font-bold"
               >
-                <motion.button 
-                  whileHover={{ scale: 1.04 }} 
-                  whileTap={{ scale: 0.96 }}
-                  className="bg-[#25D366] text-white px-6 py-3.5 rounded-full font-label-md text-[12px] uppercase tracking-[0.1em] font-bold transition-all shadow-md flex items-center gap-2 hover:bg-[#20ba59]"
-                >
-                  <span className="material-symbols-outlined text-[18px]">chat</span>
-                  Book on WhatsApp
-                </motion.button>
+                <span className="w-2 h-2 rounded-full bg-[#25D366] animate-ping"></span>
+                <span className="material-symbols-outlined text-[16px] text-[#25D366]">chat</span>
+                Book on WhatsApp
+              </a>
+
+              <a 
+                href={`tel:${settings?.contactPhone || "+9779813451412"}`}
+                className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-black/5 border border-black/10 text-on-surface hover:bg-black/10 transition-colors text-[12.5px] font-medium"
+              >
+                <span className="material-symbols-outlined text-[16px] text-[#C5A059]">call</span>
+                Hotline: {settings?.contactPhone || "+977 981-3451412"}
               </a>
             </div>
 
-            {/* Micro Trust Indicators */}
-            <div className="pt-4 flex items-center gap-6 text-[13px] text-on-surface-variant font-medium">
+            {/* Trust Badges */}
+            <div className="pt-4 flex flex-wrap items-center gap-6 text-[13px] text-on-surface-variant font-medium border-t border-black/5 pt-5">
               <span className="flex items-center gap-1.5">
-                <span className="material-symbols-outlined text-amber-500 text-[18px]">verified</span>
-                Certified Experts
+                <span className="material-symbols-outlined text-[#D4AF37] text-[18px]">verified</span>
+                Certified Stylists
               </span>
               <span className="flex items-center gap-1.5">
-                <span className="material-symbols-outlined text-amber-500 text-[18px]">spa</span>
-                Non-Toxic Products
+                <span className="material-symbols-outlined text-[#D4AF37] text-[18px]">spa</span>
+                Organic Care
               </span>
               <span className="flex items-center gap-1.5">
-                <span className="material-symbols-outlined text-amber-500 text-[18px]">workspace_premium</span>
-                5-Star Rated
+                <span className="material-symbols-outlined text-[#D4AF37] text-[18px]">workspace_premium</span>
+                5-Star Rated Studio
               </span>
             </div>
           </motion.div>
 
-          {/* Right: High-Impact Visual Card & Salon Showcase */}
+          {/* Right: Masterpiece Editorial Media Canvas */}
           <motion.div 
             className="lg:col-span-5 relative"
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
           >
-            {/* Main Visual Container with Luxury Frame */}
-            <div className="relative h-[480px] sm:h-[540px] w-full rounded-[2.5rem] overflow-hidden shadow-2xl border-4 border-white/80 glass-card-luxury">
+            {/* Main Visual Frame */}
+            <div className="relative h-[500px] sm:h-[560px] w-full rounded-[2.5rem] overflow-hidden shadow-2xl border-4 border-white glass-card-luxury group">
               <Image 
                 src="/gallery/hero-main.png"
-                alt="New Royal Beauty Salon Experience"
+                alt="New Royal Beauty Studio Model"
                 fill
-                className="object-cover object-top hover:scale-105 transition-transform duration-700"
+                className="object-cover object-top group-hover:scale-105 transition-transform duration-700"
                 priority
                 sizes="(max-width: 1024px) 100vw, 45vw"
               />
 
-              {/* Gradient Overlay */}
-              <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent"></div>
+              {/* Gradient Vignette */}
+              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
 
-              {/* Live Salon Reel Badge */}
-              <div className="absolute top-6 left-6 glass-dark-luxury px-4 py-2 rounded-full flex items-center gap-2.5 text-white shadow-lg border border-white/20">
-                <span className="w-2.5 h-2.5 rounded-full bg-red-500 animate-ping"></span>
-                <span className="text-[11px] font-bold tracking-wider uppercase">Cinematic Salon Studio</span>
-              </div>
-
-              {/* Bottom Card Overlay */}
-              <div className="absolute bottom-6 left-6 right-6 p-5 glass-dark-luxury rounded-2xl text-white border border-white/15 backdrop-blur-md">
-                <div className="flex items-center justify-between mb-2">
-                  <div className="flex items-center gap-1 text-[#FBBC05]">
+              {/* Top Glass Rating Badge */}
+              <div className="absolute top-5 left-5 right-5 flex justify-between items-center z-10">
+                <div className="glass-dark-luxury px-4 py-2 rounded-full flex items-center gap-2 text-white shadow-lg border border-white/20">
+                  <div className="flex text-[#FBBC05]">
                     {Array.from({ length: 5 }).map((_, i) => (
-                      <span key={i} className="material-symbols-outlined text-[16px]" style={{fontVariationSettings:"'FILL' 1"}}>star</span>
+                      <span key={i} className="material-symbols-outlined text-[15px]" style={{fontVariationSettings:"'FILL' 1"}}>star</span>
                     ))}
                   </div>
-                  <span className="text-[11px] bg-white/20 px-2.5 py-0.5 rounded-full font-bold uppercase text-[#F5E6AD]">Verified Reviews</span>
+                  <span className="text-[11.5px] font-bold text-white tracking-wide">4.9/5.0 Google</span>
                 </div>
-                <p className="font-display-lg text-lg font-bold text-[#ede0d9] leading-tight">
-                  &ldquo;The best beauty salon experience in Kathmandu. Pure luxury & care!&rdquo;
+
+                <div className="glass-dark-luxury px-3.5 py-1.5 rounded-full text-white text-[11px] font-bold uppercase tracking-widest border border-white/20">
+                  Kathmandu
+                </div>
+              </div>
+
+              {/* Bottom Testimonial Overlay Card (Pristine formatting, no cutoffs!) */}
+              <div className="absolute bottom-5 left-5 right-5 p-5 glass-dark-luxury rounded-2xl text-white border border-white/20 backdrop-blur-md space-y-1.5 z-10">
+                <p className="font-display-lg text-[16px] md:text-[17px] font-semibold text-[#ede0d9] leading-snug">
+                  &ldquo;Kathmandu&apos;s absolute best beauty studio. The hair care & bridal makeover are unmatched!&rdquo;
                 </p>
-                <p className="text-[12px] text-white/70 mt-1 font-body-md">— Satisfied Client, Kathmandu</p>
+                <div className="flex items-center justify-between text-[12px] text-white/70 font-body-md pt-1">
+                  <span>— Verified Client Review</span>
+                  <span className="text-[#D4AF37] font-bold uppercase text-[10px] tracking-wider">New Baneshwor</span>
+                </div>
               </div>
             </div>
 
-            {/* Overlapping Secondary Image */}
+            {/* Floating Secondary Gallery Card (Positioned cleanly without overlapping text) */}
             <motion.div 
               className="absolute -bottom-6 -left-6 w-36 h-36 sm:w-44 sm:h-44 rounded-2xl overflow-hidden shadow-2xl border-4 border-white z-20 hidden sm:block"
               animate={{ y: [0, -8, 0] }}
-              transition={{ repeat: Infinity, duration: 5, ease: "easeInOut" }}
+              transition={{ repeat: Infinity, duration: 6, ease: "easeInOut" }}
             >
               <Image 
                 src="/gallery/salon-1.webp"
-                alt="Salon Interior"
+                alt="New Royal Beauty Salon Interior"
                 fill
                 className="object-cover"
                 sizes="176px"
               />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+              <span className="absolute bottom-2 left-2 text-[10px] text-white font-bold bg-black/60 px-2 py-0.5 rounded-md backdrop-blur-sm">
+                Sanitised Studio
+              </span>
             </motion.div>
 
           </motion.div>
