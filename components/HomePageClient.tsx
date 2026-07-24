@@ -70,29 +70,29 @@ export default function HomePageClient({ settings, services, testimonials, speci
     <main className="pb-20">
 
       {/* Bespoke Luxury Hero Section */}
-      <section className="relative pt-32 pb-16 px-4 md:px-10 lg:px-12 w-[94%] max-w-[1440px] mx-auto overflow-hidden">
+      <section className="relative pt-24 sm:pt-32 pb-8 sm:pb-16 px-4 md:px-10 lg:px-12 w-[94%] max-w-[1440px] mx-auto overflow-hidden">
         {/* Soft Ambient Gold Radial Lighting Background */}
         <div className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-gradient-to-tr from-[#D4AF37]/20 via-[#F5E6AD]/25 to-transparent rounded-full blur-[140px] pointer-events-none"></div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center relative z-10">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-14 items-center relative z-10">
           
           {/* Left: High-Fashion Luxury Text & Integrated CTAs */}
           <motion.div
-            className="lg:col-span-7 space-y-6 text-left"
+            className="lg:col-span-7 space-y-4 sm:space-y-6 text-left"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
           >
             {/* Luxury Eyebrow Pill */}
-            <div className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-white/90 border border-[#D4AF37]/40 shadow-sm backdrop-blur-md">
+            <div className="inline-flex items-center gap-2 px-3 py-1 sm:px-4 sm:py-1.5 rounded-full bg-white/90 border border-[#D4AF37]/40 shadow-sm backdrop-blur-md">
               <span className="w-2 h-2 rounded-full bg-[#D4AF37] animate-pulse"></span>
-              <span className="font-label-md text-[11px] md:text-[12.5px] uppercase tracking-[0.2em] font-bold text-[#745a32]">
+              <span className="font-label-md text-[10px] sm:text-[11px] md:text-[12.5px] uppercase tracking-[0.14em] sm:tracking-[0.2em] font-bold text-[#745a32]">
                 Kathmandu&apos;s Premier Luxury Beauty Sanctuary
               </span>
             </div>
 
             {/* Editorial Serif Display Headline */}
-            <h1 className="font-display-lg text-[44px] sm:text-[60px] lg:text-[72px] text-[#1c1815] leading-[1.04] tracking-tight font-semibold">
+            <h1 className="font-display-lg text-[30px] sm:text-[54px] lg:text-[72px] text-[#1c1815] leading-[1.1] sm:leading-[1.04] tracking-tight font-semibold">
               Redefine Your Beauty. <br />
               <span className="gold-gradient-text italic font-serif font-normal">
                 Unveil Royal Radiance.
@@ -100,19 +100,19 @@ export default function HomePageClient({ settings, services, testimonials, speci
             </h1>
 
             {/* Refined Punchy Tagline */}
-            <p className="font-body-lg text-[17px] md:text-[19px] text-[#4A4A4A] max-w-xl leading-relaxed font-normal">
+            <p className="font-body-lg text-[14px] sm:text-[17px] md:text-[19px] text-[#4A4A4A] max-w-xl leading-relaxed font-normal">
               Step into Kathmandu&apos;s most prestigious salon for couture hair styling, glowing organic skin rituals, and award-winning bridal makeovers.
             </p>
 
             {/* Primary & Secondary Action Group */}
-            <div className="pt-3 flex flex-wrap items-center gap-4">
+            <div className="pt-2 sm:pt-3 flex flex-wrap items-center gap-3 sm:gap-4">
               <Link href="/book" className="w-full sm:w-auto">
                 <motion.button 
                   whileHover={{ scale: 1.03 }} 
                   whileTap={{ scale: 0.97 }}
-                  className="w-full sm:w-[245px] h-[52px] gold-button rounded-full font-label-md text-[12px] uppercase tracking-[0.08em] font-bold shadow-xl flex items-center justify-center gap-2"
+                  className="w-full sm:w-[245px] h-[48px] sm:h-[52px] gold-button rounded-full font-label-md text-[11px] sm:text-[12px] uppercase tracking-[0.08em] font-bold shadow-xl flex items-center justify-center gap-2"
                 >
-                  <span className="material-symbols-outlined text-[19px]">calendar_month</span>
+                  <span className="material-symbols-outlined text-[18px] sm:text-[19px]">calendar_month</span>
                   <span className="whitespace-nowrap">Book Appointment</span>
                 </motion.button>
               </Link>
@@ -121,9 +121,9 @@ export default function HomePageClient({ settings, services, testimonials, speci
                 <motion.button 
                   whileHover={{ scale: 1.03 }} 
                   whileTap={{ scale: 0.97 }}
-                  className="w-full sm:w-[245px] h-[52px] bg-white/90 border-2 border-[#D4AF37]/70 text-[#211a16] hover:bg-[#D4AF37]/10 rounded-full font-label-md text-[12px] uppercase tracking-[0.08em] font-bold transition-all shadow-sm flex items-center justify-center gap-2 group"
+                  className="w-full sm:w-[245px] h-[48px] sm:h-[52px] bg-white/90 border-2 border-[#D4AF37]/70 text-[#211a16] hover:bg-[#D4AF37]/10 rounded-full font-label-md text-[11px] sm:text-[12px] uppercase tracking-[0.08em] font-bold transition-all shadow-sm flex items-center justify-center gap-2 group"
                 >
-                  <span className="material-symbols-outlined text-[19px] text-[#D4AF37] group-hover:rotate-12 transition-transform">local_offer</span>
+                  <span className="material-symbols-outlined text-[18px] sm:text-[19px] text-[#D4AF37] group-hover:rotate-12 transition-transform">local_offer</span>
                   <span className="whitespace-nowrap">Explore Offers</span>
                   <span className="text-[9px] bg-red-500 text-white px-2 py-0.5 rounded-full font-bold uppercase tracking-wider animate-pulse shrink-0">Special</span>
                 </motion.button>
@@ -131,17 +131,17 @@ export default function HomePageClient({ settings, services, testimonials, speci
             </div>
 
             {/* Trust Badges */}
-            <div className="pt-4 flex flex-wrap items-center gap-6 text-[13px] text-on-surface-variant font-medium border-t border-black/5 pt-5">
+            <div className="pt-3 sm:pt-4 flex flex-wrap items-center gap-4 sm:gap-6 text-[12px] sm:text-[13px] text-on-surface-variant font-medium border-t border-black/5 pt-4">
               <span className="flex items-center gap-1.5">
-                <span className="material-symbols-outlined text-[#D4AF37] text-[18px]">verified</span>
+                <span className="material-symbols-outlined text-[#D4AF37] text-[16px] sm:text-[18px]">verified</span>
                 Certified Stylists
               </span>
               <span className="flex items-center gap-1.5">
-                <span className="material-symbols-outlined text-[#D4AF37] text-[18px]">spa</span>
+                <span className="material-symbols-outlined text-[#D4AF37] text-[16px] sm:text-[18px]">spa</span>
                 Organic Care
               </span>
               <span className="flex items-center gap-1.5">
-                <span className="material-symbols-outlined text-[#D4AF37] text-[18px]">workspace_premium</span>
+                <span className="material-symbols-outlined text-[#D4AF37] text-[16px] sm:text-[18px]">workspace_premium</span>
                 5-Star Rated Studio
               </span>
             </div>
@@ -149,13 +149,13 @@ export default function HomePageClient({ settings, services, testimonials, speci
 
           {/* Right: Masterpiece Editorial Media Canvas (Dynamic Slideshow) */}
           <motion.div 
-            className="lg:col-span-5 relative"
+            className="lg:col-span-5 relative mt-4 lg:mt-0"
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
           >
             {/* Main Visual Frame - Interactive Slideshow */}
-            <div className="relative h-[520px] sm:h-[580px] lg:h-[620px] w-full rounded-[2.5rem] overflow-hidden shadow-2xl border-4 border-white glass-card-luxury group">
+            <div className="relative h-[340px] sm:h-[500px] lg:h-[620px] w-full rounded-3xl sm:rounded-[2.5rem] overflow-hidden shadow-2xl border-4 border-white glass-card-luxury group">
               {heroSlides.map((slide, idx) => (
                 <motion.div
                   key={slide.src}

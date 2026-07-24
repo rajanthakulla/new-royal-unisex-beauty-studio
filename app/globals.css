@@ -178,3 +178,20 @@ body {
   background-color: var(--color-background);
   color: var(--color-on-surface);
 }
+
+@media (max-width: 640px) {
+  :root {
+    --text-display-lg: 30px;
+    --text-display-lg-mobile: 28px;
+    --text-headline-lg: 24px;
+    --text-headline-md: 20px;
+    --text-body-lg: 15px;
+    --text-body-md: 14px;
+    --spacing-margin-desktop: 16px;
+  }
+
+  .px-margin-desktop {
+    padding-left: 16px !important;
+    padding-right: 16px !important;
+  }
+}
